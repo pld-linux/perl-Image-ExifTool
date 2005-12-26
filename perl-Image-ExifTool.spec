@@ -21,38 +21,44 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-ExifTool is a highly customizable Perl script for reading and writing
-meta information in images.
+ExifTool is a highly customizable set of Perl libraries plus an
+application script for reading and writing meta information in images.
 
-ExifTool reads EXIF, GPS, IPTC, XMP, GeoTIFF, ICC Profile and
-Photoshop IRB meta information from JPG, JP2, TIFF, GIF, BMP, PNG,
-MNG, JNG, MIFF, EPS, PS, AI, PDF, PSD, THM, CRW, CR2, MRW, NEF, PEF,
-ORF and DNG images. ExifTool also extracts information from the maker
-notes of many digital cameras by various manufacturers including
-Canon, Casio, FujiFilm, Kodak, Minolta/Konica-Minolta, Nikon,
+ExifTool reads EXIF, GPS, IPTC, XMP, JFIF, GeoTIFF, ICC Profile,
+Photoshop IRB and ID3 meta information from JPG, JP2, TIFF, GIF, BMP,
+PICT, QTIF, PNG, MNG, JNG, MIFF, PPM, PGM, PBM, XMP, EPS, PS, AI, PDF,
+PSD, DCM, ACR, THM, CRW, CR2, MRW, NEF, PEF, ORF, RAF, SRF, MOS, X3F
+and DNG images, MP3 and WAV audio files, and AVI, MOV and MP4 videos.
+ExifTool also extracts information from the maker notes of many
+digital cameras by various manufacturers including Canon, Casio,
+FujiFilm, JVC/Victor, Kodak, Leaf, Minolta/Konica-Minolta, Nikon,
 Olympus/Epson, Panasonic/Leica, Pentax/Asahi, Ricoh, Sanyo and
 Sigma/Foveon.
 
 ExifTool writes EXIF, GPS, IPTC, XMP and MakerNotes meta information
-to JPEG, TIFF, GIF, CRW, THM, CR2, NEF, PEF and DNG images.
+to JPEG, TIFF, GIF, PPM, PGM, PBM, PNG, MNG, JNG, CRW, THM, CR2, MRW,
+NEF, PEF, MOS and DNG images.
 
 See html/index.html for more details about ExifTool features.
 
 %description -l pl
-ExifTool to wysoce dostosowywalny skrypt perlowy do czytania i
-zapisywania metadanych w plikach graficznych.
+ExifTool to wysoce dostosowywalny zestaw bibliotek perlowych oraz
+aplikacja do czytania i zapisywania metadanych w plikach graficznych.
 
-ExifTool potrafi odczytaæ metatagi EXIF, GPS, IPTC, XMP, GeoTIFF, ICC
-Profile, Photoshop IRB z plików JPG, JP2, TIFF, GIF, BMP, PNG, MNG,
-JNG, MIFF, EPS, PS, AI, PDF, PSD, THM, CRW, CR2, MRW, NEF, PEF, ORF,
-DNG. ExifTool odczytuje równie¿ informacje dodatkowe o zdjêciach
-zapisywane przez aparaty cyfrowe takich firm jak Canon, Casio,
-FujiFilm, Kodak, Minolta/Konica-Minolta, Nikon, Olympus/Epson,
-Panasonic/Leica, Pentax/Asahi, Ricoh, Sanyo, Sigma/Foveon.
+ExifTool potrafi odczytaæ metatagi EXIF, GPS, IPTC, XMP, JFIF,
+GeoTIFF, ICC Profile, Photoshop IRB i ID3 z plików graficznych JPG,
+JP2, TIFF, GIF, BMP, PICT, QTIF, PNG, MNG, JNG, MIFF, PPM, PGM, PBM,
+XMP, EPS, PS, AI, PDF, PSD, DCM, ACR, THM, CRW, CR2, MRW, NEF, PEF,
+ORF, RAF, SRF, MOS, X3F i DNG, z plików d¼wiêkowych MP3 i WAV oraz z
+plików video AVI, MOV i MP4. ExifTool odczytuje równie¿ informacje
+dodatkowe o zdjêciach zapisywane przez aparaty cyfrowe takich firm jak
+Canon, Casio, FujiFilm, JVC/Victor, Kodak, Leaf,
+Minolta/Konica-Minolta, Nikon, Olympus/Epson, Panasonic/Leica,
+Pentax/Asahi, Ricoh, Sanyo i Sigma/Foveon.
 
 ExifTool potrafi zapisaæ metatagi EXIF, GPS, IPTC, XMP wraz z
-informacjami dodatkowymi producenta do plików JPEG, TIFF, GIF, CRW,
-THM, CR2, NEF, PEF, DNG.
+informacjami dodatkowymi producenta do plików JPEG, TIFF, GIF, PPM,
+PGM, PBM, PNG, MNG, JNG, CRW, THM, CR2, MRW, NEF, PEF i DNG.
 
 Wiêcej informacji o mo¿liwo¶ciach pakietu ExifTool znajduje siê w
 pliku html/index.html.
