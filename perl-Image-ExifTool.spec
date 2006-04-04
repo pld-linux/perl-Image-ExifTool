@@ -21,7 +21,6 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-
 ExifTool is a customizable set of Perl libraries plus an application
 script for reading and writing meta information in image, audio and
 video files.
