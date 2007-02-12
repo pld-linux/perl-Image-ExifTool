@@ -6,7 +6,7 @@
 %define		pdir	Image
 %define		pnam	ExifTool
 Summary:	Perl module for reading and writing image metadata
-Summary(pl):	Modu³ Perla do czytania i zapisywania metadanych w plikach graficznych
+Summary(pl.UTF-8):   ModuÅ‚ Perla do czytania i zapisywania metadanych w plikach graficznych
 Name:		perl-Image-ExifTool
 Version:	6.17
 Release:	1
@@ -42,28 +42,28 @@ PNG, MNG, JNG, CRW, THM, CR2, MRW, NEF, PEF, MOS and DNG images.
 
 See html/index.html for more details about ExifTool features.
 
-%description -l pl
+%description -l pl.UTF-8
 ExifTool to dostosowywalny zestaw bibliotek perlowych oraz aplikacja
 do czytania i zapisywania metadanych w plikach graficznych,
-d¼wiêkowych i wideo.
+dÅºwiÄ™kowych i wideo.
 
-ExifTool potrafi odczytaæ metatagi EXIF, GPS, IPTC, XMP, JFIF,
-GeoTIFF, ICC Profile, Photoshop IRB, AFCP i ID3 z plików graficznych
+ExifTool potrafi odczytaÄ‡ metatagi EXIF, GPS, IPTC, XMP, JFIF,
+GeoTIFF, ICC Profile, Photoshop IRB, AFCP i ID3 z plikÃ³w graficznych
 JPG, JP2, TIFF, GIF, BMP, PICT, QTIF, PNG, MNG, JNG, MIFF, PPM, PGM,
 PBM, XMP, EPS, PS, AI, PDF, PSD, DCM, ACR, THM, CRW, CR2, MRW, NEF,
-PEF, ORF, RAF, RAW, SRF, SR2, MOS, X3F i DNG, z plików d¼wiêkowych
-MP3, WAV, WMA i AIFF oraz z plików wideo AVI, MOV, MP4 i WMV. ExifTool
-odczytuje równie¿ informacje dodatkowe o zdjêciach zapisywane przez
+PEF, ORF, RAF, RAW, SRF, SR2, MOS, X3F i DNG, z plikÃ³w dÅºwiÄ™kowych
+MP3, WAV, WMA i AIFF oraz z plikÃ³w wideo AVI, MOV, MP4 i WMV. ExifTool
+odczytuje rÃ³wnieÅ¼ informacje dodatkowe o zdjÄ™ciach zapisywane przez
 aparaty cyfrowe takich firm jak Canon, Casio, FujiFilm, JVC/Victor,
 Kodak, Leaf, Minolta/Konica-Minolta, Nikon, Olympus/Epson,
 Panasonic/Leica, Pentax/Asahi, Ricoh, Sanyo i Sigma/Foveon.
 
-ExifTool potrafi zapisaæ metatagi EXIF, GPS, IPTC, XMP, Photoshop IRB
-i AFCP wraz z informacjami dodatkowymi producenta do plików JPEG,
+ExifTool potrafi zapisaÄ‡ metatagi EXIF, GPS, IPTC, XMP, Photoshop IRB
+i AFCP wraz z informacjami dodatkowymi producenta do plikÃ³w JPEG,
 TIFF, GIF, PSD, XMP, PPM, PGM, PBM, PNG, MNG, JNG, CRW, THM, CR2, MRW,
 NEF, PEF, MOS i DNG.
 
-Wiêcej informacji o mo¿liwo¶ciach pakietu ExifTool znajduje siê w
+WiÄ™cej informacji o moÅ¼liwoÅ›ciach pakietu ExifTool znajduje siÄ™ w
 pliku html/index.html.
 
 %prep
