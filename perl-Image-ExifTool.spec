@@ -6,7 +6,7 @@
 %define		pdir	Image
 %define		pnam	ExifTool
 Summary:	Perl module for reading and writing image metadata
-Summary(pl.UTF-8):   Moduł Perla do czytania i zapisywania metadanych w plikach graficznych
+Summary(pl.UTF-8):	Moduł Perla do czytania i zapisywania metadanych w plikach graficznych
 Name:		perl-Image-ExifTool
 Version:	6.17
 Release:	1
