@@ -8,13 +8,13 @@
 Summary:	Perl module for reading and writing image metadata
 Summary(pl.UTF-8):	Moduł Perla do czytania i zapisywania metadanych w plikach graficznych
 Name:		perl-Image-ExifTool
-Version:	6.17
+Version:	7.30
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Image/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	2c839c4d58b59bf18378a99ac4ea0861
+# Source0-md5:	0afc347c6adebbc31e8bd28d70c48c00
 URL:		http://search.cpan.org/dist/Image-ExifTool/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -22,47 +22,89 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-ExifTool is a customizable set of Perl libraries plus an application
+ExifTool is a customizable set of Perl modules plus an application
 script for reading and writing meta information in image, audio and
-video files.
+video files, including the maker note information of many digital
+cameras by various manufacturers such as Canon, Casio, FujiFilm, HP,
+JVC/Victor, Kodak, Leaf, Minolta/Konica-Minolta, Nikon, Olympus/Epson,
+Panasonic/Leica, Pentax/Asahi, Ricoh, Sanyo, Sigma/Foveon and Sony.
 
-ExifTool reads EXIF, GPS, IPTC, XMP, JFIF, GeoTIFF, ICC Profile,
-Photoshop IRB, AFCP and ID3 meta information from JPG, JP2, TIFF, GIF,
-BMP, PICT, QTIF, PNG, MNG, JNG, MIFF, PPM, PGM, PBM, XMP, EPS, PS, AI,
-PDF, PSD, DCM, ACR, THM, CRW, CR2, MRW, NEF, PEF, ORF, RAF, RAW, SRF,
-SR2, MOS, X3F and DNG images, MP3, WAV, WMA and AIFF audio files, and
-AVI, MOV, MP4 and WMV videos. ExifTool also extracts information from
-the maker notes of many digital cameras by various manufacturers
-including Canon, Casio, FujiFilm, JVC/Victor, Kodak, Leaf,
-Minolta/Konica-Minolta, Nikon, Olympus/Epson, Panasonic/Leica,
-Pentax/Asahi, Ricoh, Sanyo and Sigma/Foveon.
+Below is a list of file types and meta information formats currently
+supported by ExifTool (r = read, w = write, c = create):
 
-ExifTool writes EXIF, GPS, IPTC, XMP, MakerNotes, Photoshop IRB and
-AFCP meta information to JPEG, TIFF, GIF, PSD, XMP, PPM, PGM, PBM,
-PNG, MNG, JNG, CRW, THM, CR2, MRW, NEF, PEF, MOS and DNG images.
+                File Types                 |    Meta Information
+  ---------------------------------------  |  --------------------
+  3FR   r       ITC   r       PPM   r/w    |  EXIF           r/w/c
+  ACR   r       JNG   r/w     PPT   r      |  GPS            r/w/c
+  AI    r       JP2   r/w     PS    r/w    |  IPTC           r/w/c
+  AIFF  r       JPEG  r/w     PSD   r/w    |  XMP            r/w/c
+  APE   r       K25   r       QTIF  r      |  MakerNotes     r/w/c
+  ARW   r       KDC   r       RA    r      |  Photoshop IRB  r/w/c
+  ASF   r       M4A   r       RAF   r/w    |  ICC Profile    r/w/c
+  AVI   r       MEF   r/w     RAM   r      |  MIE            r/w/c
+  BMP   r       MIE   r/w/c   RAW   r/w    |  JFIF           r/w/c
+  BTF   r       MIFF  r       RIFF  r      |  Ducky APP12    r/w/c
+  CR2   r/w     MNG   r/w     RM    r      |  CIFF           r/w
+  CRW   r/w     MOS   r/w     SR2   r      |  AFCP           r/w
+  CS1   r/w     MOV   r       SRF   r      |  JPEG 2000      r
+  DCM   r       MP3   r       SVG   r      |  DICOM          r
+  DCR   r       MP4   r       SWF   r      |  Flash          r
+  DIVX  r       MPC   r       THM   r/w    |  FlashPix       r
+  DNG   r/w     MPG   r       TIFF  r/w    |  QuickTime      r
+  DOC   r       MRW   r/w     VRD   r/w/c  |  GeoTIFF        r
+  EPS   r/w     NEF   r/w     WAV   r      |  PrintIM        r
+  ERF   r/w     OGG   r       WDP   r/w    |  ID3            r
+  FLAC  r       ORF   r/w     WMA   r      |  Kodak Meta     r
+  FLV   r       PBM   r/w     WMV   r      |  Ricoh RMETA    r
+  FPX   r       PDF   r/w     X3F   r      |  Picture Info   r
+  GIF   r/w     PEF   r/w     XLS   r      |  Adobe APP14    r
+  HDP   r/w     PGM   r/w     XMP   r/w/c  |  APE            r
+  HTML  r       PICT  r                    |  Vorbis         r
+  ICC   r/w/c   PNG   r/w                  |  (and more)
 
 See html/index.html for more details about ExifTool features.
 
 %description -l pl.UTF-8
-ExifTool to dostosowywalny zestaw bibliotek perlowych oraz aplikacja
+ExifTool to dostosowywalny zestaw modułów perlowych oraz aplikacja
 do czytania i zapisywania metadanych w plikach graficznych,
-dźwiękowych i wideo.
+dźwiękowych i wideo. ExifTool odczytuje również informacje
+dodatkowe o zdjęciach zapisywane przez aparaty cyfrowe takich firm
+jak Canon, Casio, FujiFilm, HP, JVC/Victor, Kodak, Leaf,
+Minolta/Konica-Minolta, Nikon, Olympus/Epson, Panasonic/Leica,
+Pentax/Asahi, Ricoh, Sanyo, Sigma/Foveon i Sony.
 
-ExifTool potrafi odczytać metatagi EXIF, GPS, IPTC, XMP, JFIF,
-GeoTIFF, ICC Profile, Photoshop IRB, AFCP i ID3 z plików graficznych
-JPG, JP2, TIFF, GIF, BMP, PICT, QTIF, PNG, MNG, JNG, MIFF, PPM, PGM,
-PBM, XMP, EPS, PS, AI, PDF, PSD, DCM, ACR, THM, CRW, CR2, MRW, NEF,
-PEF, ORF, RAF, RAW, SRF, SR2, MOS, X3F i DNG, z plików dźwiękowych
-MP3, WAV, WMA i AIFF oraz z plików wideo AVI, MOV, MP4 i WMV. ExifTool
-odczytuje również informacje dodatkowe o zdjęciach zapisywane przez
-aparaty cyfrowe takich firm jak Canon, Casio, FujiFilm, JVC/Victor,
-Kodak, Leaf, Minolta/Konica-Minolta, Nikon, Olympus/Epson,
-Panasonic/Leica, Pentax/Asahi, Ricoh, Sanyo i Sigma/Foveon.
+Lista formatów plików i metadanych obsługiwanych przez ExifTool
+(r = odczyt, w = zapis, c = tworzenie):
 
-ExifTool potrafi zapisać metatagi EXIF, GPS, IPTC, XMP, Photoshop IRB
-i AFCP wraz z informacjami dodatkowymi producenta do plików JPEG,
-TIFF, GIF, PSD, XMP, PPM, PGM, PBM, PNG, MNG, JNG, CRW, THM, CR2, MRW,
-NEF, PEF, MOS i DNG.
+              Formaty plików               |   Formaty metadanych
+  ---------------------------------------  |  --------------------
+  3FR   r       ITC   r       PPM   r/w    |  EXIF           r/w/c
+  ACR   r       JNG   r/w     PPT   r      |  GPS            r/w/c
+  AI    r       JP2   r/w     PS    r/w    |  IPTC           r/w/c
+  AIFF  r       JPEG  r/w     PSD   r/w    |  XMP            r/w/c
+  APE   r       K25   r       QTIF  r      |  MakerNotes     r/w/c
+  ARW   r       KDC   r       RA    r      |  Photoshop IRB  r/w/c
+  ASF   r       M4A   r       RAF   r/w    |  ICC Profile    r/w/c
+  AVI   r       MEF   r/w     RAM   r      |  MIE            r/w/c
+  BMP   r       MIE   r/w/c   RAW   r/w    |  JFIF           r/w/c
+  BTF   r       MIFF  r       RIFF  r      |  Ducky APP12    r/w/c
+  CR2   r/w     MNG   r/w     RM    r      |  CIFF           r/w
+  CRW   r/w     MOS   r/w     SR2   r      |  AFCP           r/w
+  CS1   r/w     MOV   r       SRF   r      |  JPEG 2000      r
+  DCM   r       MP3   r       SVG   r      |  DICOM          r
+  DCR   r       MP4   r       SWF   r      |  Flash          r
+  DIVX  r       MPC   r       THM   r/w    |  FlashPix       r
+  DNG   r/w     MPG   r       TIFF  r/w    |  QuickTime      r
+  DOC   r       MRW   r/w     VRD   r/w/c  |  GeoTIFF        r
+  EPS   r/w     NEF   r/w     WAV   r      |  PrintIM        r
+  ERF   r/w     OGG   r       WDP   r/w    |  ID3            r
+  FLAC  r       ORF   r/w     WMA   r      |  Kodak Meta     r
+  FLV   r       PBM   r/w     WMV   r      |  Ricoh RMETA    r
+  FPX   r       PDF   r/w     X3F   r      |  Picture Info   r
+  GIF   r/w     PEF   r/w     XLS   r      |  Adobe APP14    r
+  HDP   r/w     PGM   r/w     XMP   r/w/c  |  APE            r
+  HTML  r       PICT  r                    |  Vorbis         r
+  ICC   r/w/c   PNG   r/w                  |  (and more)
 
 Więcej informacji o możliwościach pakietu ExifTool znajduje się w
 pliku html/index.html.
