@@ -104,7 +104,7 @@ Lista formatów plików i metadanych obsługiwanych przez ExifTool
   GIF   r/w     PEF   r/w     XLS   r      |  Adobe APP14    r
   HDP   r/w     PGM   r/w     XMP   r/w/c  |  APE            r
   HTML  r       PICT  r                    |  Vorbis         r
-  ICC   r/w/c   PNG   r/w                  |  (and more)
+  ICC   r/w/c   PNG   r/w                  |  (i inne)
 
 Więcej informacji o możliwościach pakietu ExifTool znajduje się w
 pliku html/index.html.
