@@ -145,4 +145,18 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/Image/ExifTool.pm
 %dir %{perl_vendorlib}/Image/ExifTool
 %{perl_vendorlib}/Image/ExifTool/*.p[lm]
-%{_mandir}/man[13]/*
+%dir %{perl_vendorlib}/Image/ExifTool/Lang
+%lang(zh_CN) %{perl_vendorlib}/Image/ExifTool/Lang/ch_s.pm
+%lang(cs) %{perl_vendorlib}/Image/ExifTool/Lang/cz.pm
+%lang(de) %{perl_vendorlib}/Image/ExifTool/Lang/de.pm
+%lang(en_CA) %{perl_vendorlib}/Image/ExifTool/Lang/en_ca.pm
+%lang(en_GB) %{perl_vendorlib}/Image/ExifTool/Lang/en_gb.pm
+%lang(es) %{perl_vendorlib}/Image/ExifTool/Lang/es.pm
+%lang(fr) %{perl_vendorlib}/Image/ExifTool/Lang/fr.pm
+%lang(it) %{perl_vendorlib}/Image/ExifTool/Lang/it.pm
+%lang(ja) %{perl_vendorlib}/Image/ExifTool/Lang/jp.pm
+%lang(nl) %{perl_vendorlib}/Image/ExifTool/Lang/nl.pm
+%lang(pl) %{perl_vendorlib}/Image/ExifTool/Lang/pl.pm
+%{_mandir}/man1/exiftool.1p*
+%{_mandir}/man3/File::RandomAccess.3pm*
+%{_mandir}/man3/Image::ExifTool*.3pm*
