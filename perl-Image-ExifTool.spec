@@ -8,14 +8,14 @@
 Summary:	Perl module for reading and writing image metadata
 Summary(pl.UTF-8):	Moduł Perla do czytania i zapisywania metadanych w plikach graficznych
 Name:		perl-Image-ExifTool
-Version:	7.67
+Version:	7.76
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Image/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	4b60741cd725683eb11ae0866e5941e5
-URL:		http://search.cpan.org/dist/Image-ExifTool/
+Source0:	http://www.sno.phy.queensu.ca/~phil/exiftool/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	31bc4b453b0f8a1b9ccc91e0941e5ffd
+URL:		http://www.sno.phy.queensu.ca/~phil/exiftool/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
@@ -34,36 +34,37 @@ supported by ExifTool (r = read, w = write, c = create):
 
                 File Types                 |    Meta Information
   ---------------------------------------  |  --------------------
-  3FR   r       HDP   r/w     PPM   r/w    |  EXIF           r/w/c
-  ACR   r       HTML  r       PPT   r      |  GPS            r/w/c
-  AI    r       ICC   r/w/c   PS    r/w    |  IPTC           r/w/c
-  AIFF  r       ITC   r       PSD   r/w    |  XMP            r/w/c
-  APE   r       JNG   r/w     QTIF  r      |  MakerNotes     r/w/c
-  ARW   r       JP2   r/w     RA    r      |  Photoshop IRB  r/w/c
-  ASF   r       JPEG  r/w     RAF   r/w    |  ICC Profile    r/w/c
-  AVI   r       K25   r       RAM   r      |  MIE            r/w/c
-  BMP   r       KDC   r       RAW   r/w    |  JFIF           r/w/c
-  BTF   r       M4A   r       RIFF  r      |  Ducky APP12    r/w/c
-  CR2   r/w     MEF   r/w     RW2   r      |  PDF            r/w/c
-  CRW   r/w     MIE   r/w/c   RWZ   r      |  CIFF           r/w
-  CS1   r/w     MIFF  r       RM    r      |  AFCP           r/w
-  DCM   r       MNG   r/w     SO    r      |  JPEG 2000      r
-  DCP   r/w     MOS   r/w     SR2   r      |  DICOM          r
-  DCR   r       MOV   r       SRF   r      |  Flash          r
-  DIVX  r       MP3   r       SVG   r      |  FlashPix       r
-  DJVU  r       MP4   r       SWF   r      |  QuickTime      r
-  DLL   r       MPC   r       THM   r/w    |  GeoTIFF        r
-  DNG   r/w     MPG   r       TIFF  r/w    |  PrintIM        r
-  DOC   r       MRW   r/w     VRD   r/w/c  |  ID3            r
-  DYLIB r       NEF   r/w     WAV   r      |  Kodak Meta     r
+  3FR   r       HTML  r       PPT   r      |  EXIF           r/w/c
+  ACR   r       ICC   r/w/c   PS    r/w    |  GPS            r/w/c
+  AI    r       ITC   r       PSD   r/w    |  IPTC           r/w/c
+  AIFF  r       JNG   r/w     QTIF  r      |  XMP            r/w/c
+  APE   r       JP2   r/w     RA    r      |  MakerNotes     r/w/c
+  ARW   r       JPEG  r/w     RAF   r/w    |  Photoshop IRB  r/w/c
+  ASF   r       K25   r       RAM   r      |  ICC Profile    r/w/c
+  AVI   r       KDC   r       RAW   r/w    |  MIE            r/w/c
+  BMP   r       M4A   r       RIFF  r      |  JFIF           r/w/c
+  BTF   r       MEF   r/w     RW2   r/w    |  Ducky APP12    r/w/c
+  CR2   r/w     MIE   r/w/c   RWL   r/w    |  PDF            r/w/c
+  CRW   r/w     MIFF  r       RWZ   r      |  CIFF           r/w
+  CS1   r/w     MNG   r/w     RM    r      |  AFCP           r/w
+  DCM   r       MOS   r/w     SO    r      |  JPEG 2000      r
+  DCP   r/w     MOV   r       SR2   r      |  DICOM          r
+  DCR   r       MP3   r       SRF   r      |  Flash          r
+  DIVX  r       MP4   r       SVG   r      |  FlashPix       r
+  DJVU  r       MPC   r       SWF   r      |  QuickTime      r
+  DLL   r       MPG   r       THM   r/w    |  GeoTIFF        r
+  DNG   r/w     MRW   r/w     TIFF  r/w    |  PrintIM        r
+  DOC   r       NEF   r/w     VRD   r/w/c  |  ID3            r
+  DYLIB r       NRW   r/w     WAV   r      |  Kodak Meta     r
   EPS   r/w     OGG   r       WDP   r/w    |  Ricoh RMETA    r
   ERF   r/w     ORF   r/w     WMA   r      |  Picture Info   r
   EXE   r       PBM   r/w     WMV   r      |  Adobe APP14    r
-  EXIF  r/w/c   PDF   r/w     X3F   r      |  APE            r
-  FLAC  r       PEF   r/w     XLS   r      |  Vorbis         r
-  FLV   r       PGM   r/w     XMP   r/w/c  |  SPIFF          r
-  FPX   r       PICT  r       ZIP   r      |  (and more)
-  GIF   r/w     PNG   r/w
+  EXIF  r/w/c   PDF   r/w     X3F   r      |  Panasonic MPF  r
+  FLAC  r       PEF   r/w     XLS   r      |  APE            r
+  FLV   r       PGM   r/w     XMP   r/w/c  |  Vorbis         r
+  FPX   r       PICT  r       ZIP   r      |  SPIFF          r
+  GIF   r/w     PNG   r/w                  |  DjVu           r
+  HDP   r/w     PPM   r/w                  |  (and more)
 
 See html/index.html for more details about ExifTool features.
 
@@ -81,36 +82,37 @@ Lista formatów plików i metadanych obsługiwanych przez ExifTool
 
               Formaty plików               |   Formaty metadanych
   ---------------------------------------  |  --------------------
-  3FR   r       HDP   r/w     PPM   r/w    |  EXIF           r/w/c
-  ACR   r       HTML  r       PPT   r      |  GPS            r/w/c
-  AI    r       ICC   r/w/c   PS    r/w    |  IPTC           r/w/c
-  AIFF  r       ITC   r       PSD   r/w    |  XMP            r/w/c
-  APE   r       JNG   r/w     QTIF  r      |  MakerNotes     r/w/c
-  ARW   r       JP2   r/w     RA    r      |  Photoshop IRB  r/w/c
-  ASF   r       JPEG  r/w     RAF   r/w    |  ICC Profile    r/w/c
-  AVI   r       K25   r       RAM   r      |  MIE            r/w/c
-  BMP   r       KDC   r       RAW   r/w    |  JFIF           r/w/c
-  BTF   r       M4A   r       RIFF  r      |  Ducky APP12    r/w/c
-  CR2   r/w     MEF   r/w     RW2   r      |  PDF            r/w/c
-  CRW   r/w     MIE   r/w/c   RWZ   r      |  CIFF           r/w
-  CS1   r/w     MIFF  r       RM    r      |  AFCP           r/w
-  DCM   r       MNG   r/w     SO    r      |  JPEG 2000      r
-  DCP   r/w     MOS   r/w     SR2   r      |  DICOM          r
-  DCR   r       MOV   r       SRF   r      |  Flash          r
-  DIVX  r       MP3   r       SVG   r      |  FlashPix       r
-  DJVU  r       MP4   r       SWF   r      |  QuickTime      r
-  DLL   r       MPC   r       THM   r/w    |  GeoTIFF        r
-  DNG   r/w     MPG   r       TIFF  r/w    |  PrintIM        r
-  DOC   r       MRW   r/w     VRD   r/w/c  |  ID3            r
-  DYLIB r       NEF   r/w     WAV   r      |  Kodak Meta     r
+  3FR   r       HTML  r       PPT   r      |  EXIF           r/w/c
+  ACR   r       ICC   r/w/c   PS    r/w    |  GPS            r/w/c
+  AI    r       ITC   r       PSD   r/w    |  IPTC           r/w/c
+  AIFF  r       JNG   r/w     QTIF  r      |  XMP            r/w/c
+  APE   r       JP2   r/w     RA    r      |  MakerNotes     r/w/c
+  ARW   r       JPEG  r/w     RAF   r/w    |  Photoshop IRB  r/w/c
+  ASF   r       K25   r       RAM   r      |  ICC Profile    r/w/c
+  AVI   r       KDC   r       RAW   r/w    |  MIE            r/w/c
+  BMP   r       M4A   r       RIFF  r      |  JFIF           r/w/c
+  BTF   r       MEF   r/w     RW2   r/w    |  Ducky APP12    r/w/c
+  CR2   r/w     MIE   r/w/c   RWL   r/w    |  PDF            r/w/c
+  CRW   r/w     MIFF  r       RWZ   r      |  CIFF           r/w
+  CS1   r/w     MNG   r/w     RM    r      |  AFCP           r/w
+  DCM   r       MOS   r/w     SO    r      |  JPEG 2000      r
+  DCP   r/w     MOV   r       SR2   r      |  DICOM          r
+  DCR   r       MP3   r       SRF   r      |  Flash          r
+  DIVX  r       MP4   r       SVG   r      |  FlashPix       r
+  DJVU  r       MPC   r       SWF   r      |  QuickTime      r
+  DLL   r       MPG   r       THM   r/w    |  GeoTIFF        r
+  DNG   r/w     MRW   r/w     TIFF  r/w    |  PrintIM        r
+  DOC   r       NEF   r/w     VRD   r/w/c  |  ID3            r
+  DYLIB r       NRW   r/w     WAV   r      |  Kodak Meta     r
   EPS   r/w     OGG   r       WDP   r/w    |  Ricoh RMETA    r
   ERF   r/w     ORF   r/w     WMA   r      |  Picture Info   r
   EXE   r       PBM   r/w     WMV   r      |  Adobe APP14    r
-  EXIF  r/w/c   PDF   r/w     X3F   r      |  APE            r
-  FLAC  r       PEF   r/w     XLS   r      |  Vorbis         r
-  FLV   r       PGM   r/w     XMP   r/w/c  |  SPIFF          r
-  FPX   r       PICT  r       ZIP   r      |  (and more)
-  GIF   r/w     PNG   r/w
+  EXIF  r/w/c   PDF   r/w     X3F   r      |  Panasonic MPF  r
+  FLAC  r       PEF   r/w     XLS   r      |  APE            r
+  FLV   r       PGM   r/w     XMP   r/w/c  |  Vorbis         r
+  FPX   r       PICT  r       ZIP   r      |  SPIFF          r
+  GIF   r/w     PNG   r/w                  |  DjVu           r
+  HDP   r/w     PPM   r/w                  |  (i inne)
 
 Więcej informacji o możliwościach pakietu ExifTool znajduje się w
 pliku html/index.html.
@@ -146,17 +148,22 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorlib}/Image/ExifTool
 %{perl_vendorlib}/Image/ExifTool/*.p[lm]
 %dir %{perl_vendorlib}/Image/ExifTool/Lang
-%lang(zh_CN) %{perl_vendorlib}/Image/ExifTool/Lang/ch_s.pm
-%lang(cs) %{perl_vendorlib}/Image/ExifTool/Lang/cz.pm
+%lang(cs) %{perl_vendorlib}/Image/ExifTool/Lang/cs.pm
 %lang(de) %{perl_vendorlib}/Image/ExifTool/Lang/de.pm
 %lang(en_CA) %{perl_vendorlib}/Image/ExifTool/Lang/en_ca.pm
 %lang(en_GB) %{perl_vendorlib}/Image/ExifTool/Lang/en_gb.pm
 %lang(es) %{perl_vendorlib}/Image/ExifTool/Lang/es.pm
 %lang(fr) %{perl_vendorlib}/Image/ExifTool/Lang/fr.pm
 %lang(it) %{perl_vendorlib}/Image/ExifTool/Lang/it.pm
-%lang(ja) %{perl_vendorlib}/Image/ExifTool/Lang/jp.pm
+%lang(ja) %{perl_vendorlib}/Image/ExifTool/Lang/ja.pm
+%lang(ko) %{perl_vendorlib}/Image/ExifTool/Lang/ko.pm
 %lang(nl) %{perl_vendorlib}/Image/ExifTool/Lang/nl.pm
 %lang(pl) %{perl_vendorlib}/Image/ExifTool/Lang/pl.pm
+%lang(ru) %{perl_vendorlib}/Image/ExifTool/Lang/ru.pm
+%lang(sv) %{perl_vendorlib}/Image/ExifTool/Lang/sv.pm
+%lang(tr) %{perl_vendorlib}/Image/ExifTool/Lang/tr.pm
+%lang(zh_CN) %{perl_vendorlib}/Image/ExifTool/Lang/zh_cn.pm
+%lang(zh_TW) %{perl_vendorlib}/Image/ExifTool/Lang/zh_tw.pm
 %{_mandir}/man1/exiftool.1p*
 %{_mandir}/man3/File::RandomAccess.3pm*
 %{_mandir}/man3/Image::ExifTool*.3pm*
