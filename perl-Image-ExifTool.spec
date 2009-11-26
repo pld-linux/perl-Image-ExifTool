@@ -8,13 +8,13 @@
 Summary:	Perl module for reading and writing image metadata
 Summary(pl.UTF-8):	Moduł Perla do czytania i zapisywania metadanych w plikach graficznych
 Name:		perl-Image-ExifTool
-Version:	7.99
+Version:	8.00
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.sno.phy.queensu.ca/~phil/exiftool/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	f397ee071a01104e6c68da43f3bdd372
+# Source0-md5:	525f52712c2ab21c467ade83ceb567b8
 URL:		http://www.sno.phy.queensu.ca/~phil/exiftool/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -34,43 +34,43 @@ supported by ExifTool (r = read, w = write, c = create):
 
                 File Types                 |    Meta Information
   ---------------------------------------  |  --------------------
-  3FR   r       GIF   r/w     PGM   r/w    |  EXIF           r/w/c
-  3G2   r       GZ    r       PICT  r      |  GPS            r/w/c
-  3GP   r       HDP   r/w     PNG   r/w    |  IPTC           r/w/c
-  ACR   r       HTML  r       PPM   r/w    |  XMP            r/w/c
-  AI    r/w     ICC   r/w/c   PPT   r      |  MakerNotes     r/w/c
-  AIFF  r       IIQ   r       PPTX  r      |  Photoshop IRB  r/w/c
-  APE   r       IND   r/w     PS    r/w    |  ICC Profile    r/w/c
-  ARW   r       ITC   r       PSD   r/w    |  MIE            r/w/c
-  ASF   r       JNG   r/w     QTIF  r      |  JFIF           r/w/c
-  AVI   r       JP2   r/w     RA    r      |  Ducky APP12    r/w/c
-  BMP   r       JPEG  r/w     RAF   r/w    |  PDF            r/w/c
-  BTF   r       K25   r       RAM   r      |  CIFF           r/w
-  COS   r       KDC   r       RAW   r/w    |  AFCP           r/w
-  CR2   r/w     LNK   r       RIFF  r      |  JPEG 2000      r
-  CRW   r/w     M2TS  r       RW2   r/w    |  DICOM          r
-  CS1   r/w     M4A/V r       RWL   r/w    |  Flash          r
-  DCM   r       MEF   r/w     RWZ   r      |  FlashPix       r
-  DCP   r/w     MIE   r/w/c   RM    r      |  QuickTime      r
-  DCR   r       MIFF  r       SO    r      |  GeoTIFF        r
-  DIVX  r       MNG   r/w     SR2   r      |  PrintIM        r
-  DJVU  r       MOS   r/w     SRF   r      |  ID3            r
-  DLL   r       MOV   r       SVG   r      |  Kodak Meta     r
-  DNG   r/w     MP3   r       SWF   r      |  Ricoh RMETA    r
-  DOC   r       MP4   r       THM   r/w    |  Picture Info   r
-  DOCX  r       MPC   r       TIFF  r/w    |  Adobe APP14    r
-  DVB   r       MPG   r       VRD   r/w/c  |  MPF            r
-  DYLIB r       MPO   r/w     WAV   r      |  Stim           r
-  EIP   r       MQV   r       WDP   r/w    |  APE            r
-  EPS   r/w     MRW   r/w     WMA   r      |  Vorbis         r
-  ERF   r/w     NEF   r/w     WMV   r      |  SPIFF          r
-  EXE   r       NRW   r/w     X3F   r      |  DjVu           r
-  EXIF  r/w/c   OGG   r       XLS   r      |  M2TS           r
-  F4A/V r       ORF   r/w     XLSX  r      |  PE/COFF        r
-  FLAC  r       PBM   r/w     XMP   r/w/c  |  AVCHD          r
-  FLV   r       PDF   r/w     ZIP   r      |  ZIP            r
-  FPX   r       PEF   r/w                  |  (and more)
-
+  3FR   r       GZ    r       PEF   r/w    |  EXIF           r/w/c
+  3G2   r       HDP   r/w     PGM   r/w    |  GPS            r/w/c
+  3GP   r       HTML  r       PICT  r      |  IPTC           r/w/c
+  ACR   r       ICC   r/w/c   PNG   r/w    |  XMP            r/w/c
+  AI    r/w     IIQ   r       PPM   r/w    |  MakerNotes     r/w/c
+  AIFF  r       IND   r/w     PPT   r      |  Photoshop IRB  r/w/c
+  APE   r       ITC   r       PPTX  r      |  ICC Profile    r/w/c
+  ARW   r       JNG   r/w     PS    r/w    |  MIE            r/w/c
+  ASF   r       JP2   r/w     PSD   r/w    |  JFIF           r/w/c
+  AVI   r       JPEG  r/w     QTIF  r      |  Ducky APP12    r/w/c
+  BMP   r       K25   r       RA    r      |  PDF            r/w/c
+  BTF   r       KDC   r       RAF   r/w    |  CIFF           r/w
+  COS   r       KEY   r       RAM   r      |  AFCP           r/w
+  CR2   r/w     LNK   r       RAW   r/w    |  JPEG 2000      r
+  CRW   r/w     M2TS  r       RIFF  r      |  DICOM          r
+  CS1   r/w     M4A/V r       RW2   r/w    |  Flash          r
+  DCM   r       MEF   r/w     RWL   r/w    |  FlashPix       r
+  DCP   r/w     MIE   r/w/c   RWZ   r      |  QuickTime      r
+  DCR   r       MIFF  r       RM    r      |  GeoTIFF        r
+  DIVX  r       MNG   r/w     SO    r      |  PrintIM        r
+  DJVU  r       MOS   r/w     SR2   r      |  ID3            r
+  DLL   r       MOV   r       SRF   r      |  Kodak Meta     r
+  DNG   r/w     MP3   r       SVG   r      |  Ricoh RMETA    r
+  DOC   r       MP4   r       SWF   r      |  Picture Info   r
+  DOCX  r       MPC   r       THM   r/w    |  Adobe APP14    r
+  DVB   r       MPG   r       TIFF  r/w    |  MPF            r
+  DYLIB r       MPO   r/w     VRD   r/w/c  |  Stim           r
+  EIP   r       MQV   r       WAV   r      |  APE            r
+  EPS   r/w     MRW   r/w     WDP   r/w    |  Vorbis         r
+  ERF   r/w     NEF   r/w     WMA   r      |  SPIFF          r
+  EXE   r       NRW   r/w     WMV   r      |  DjVu           r
+  EXIF  r/w/c   NUMBERS r     X3F   r      |  M2TS           r
+  F4A/V r       OGG   r       XLS   r      |  PE/COFF        r
+  FLAC  r       ORF   r/w     XLSX  r      |  AVCHD          r
+  FLV   r       PAGES r       XMP   r/w/c  |  ZIP            r
+  FPX   r       PBM   r/w     ZIP   r      |  (and more)
+  GIF   r/w     PDF   r/w  
 
 See html/index.html for more details about ExifTool features.
 
@@ -88,42 +88,44 @@ Lista formatów plików i metadanych obsługiwanych przez ExifTool
 
               Formaty plików               |   Formaty metadanych
   ---------------------------------------  |  --------------------
-  3FR   r       GIF   r/w     PGM   r/w    |  EXIF           r/w/c
-  3G2   r       GZ    r       PICT  r      |  GPS            r/w/c
-  3GP   r       HDP   r/w     PNG   r/w    |  IPTC           r/w/c
-  ACR   r       HTML  r       PPM   r/w    |  XMP            r/w/c
-  AI    r/w     ICC   r/w/c   PPT   r      |  MakerNotes     r/w/c
-  AIFF  r       IIQ   r       PPTX  r      |  Photoshop IRB  r/w/c
-  APE   r       IND   r/w     PS    r/w    |  ICC Profile    r/w/c
-  ARW   r       ITC   r       PSD   r/w    |  MIE            r/w/c
-  ASF   r       JNG   r/w     QTIF  r      |  JFIF           r/w/c
-  AVI   r       JP2   r/w     RA    r      |  Ducky APP12    r/w/c
-  BMP   r       JPEG  r/w     RAF   r/w    |  PDF            r/w/c
-  BTF   r       K25   r       RAM   r      |  CIFF           r/w
-  COS   r       KDC   r       RAW   r/w    |  AFCP           r/w
-  CR2   r/w     LNK   r       RIFF  r      |  JPEG 2000      r
-  CRW   r/w     M2TS  r       RW2   r/w    |  DICOM          r
-  CS1   r/w     M4A/V r       RWL   r/w    |  Flash          r
-  DCM   r       MEF   r/w     RWZ   r      |  FlashPix       r
-  DCP   r/w     MIE   r/w/c   RM    r      |  QuickTime      r
-  DCR   r       MIFF  r       SO    r      |  GeoTIFF        r
-  DIVX  r       MNG   r/w     SR2   r      |  PrintIM        r
-  DJVU  r       MOS   r/w     SRF   r      |  ID3            r
-  DLL   r       MOV   r       SVG   r      |  Kodak Meta     r
-  DNG   r/w     MP3   r       SWF   r      |  Ricoh RMETA    r
-  DOC   r       MP4   r       THM   r/w    |  Picture Info   r
-  DOCX  r       MPC   r       TIFF  r/w    |  Adobe APP14    r
-  DVB   r       MPG   r       VRD   r/w/c  |  MPF            r
-  DYLIB r       MPO   r/w     WAV   r      |  Stim           r
-  EIP   r       MQV   r       WDP   r/w    |  APE            r
-  EPS   r/w     MRW   r/w     WMA   r      |  Vorbis         r
-  ERF   r/w     NEF   r/w     WMV   r      |  SPIFF          r
-  EXE   r       NRW   r/w     X3F   r      |  DjVu           r
-  EXIF  r/w/c   OGG   r       XLS   r      |  M2TS           r
-  F4A/V r       ORF   r/w     XLSX  r      |  PE/COFF        r
-  FLAC  r       PBM   r/w     XMP   r/w/c  |  AVCHD          r
-  FLV   r       PDF   r/w     ZIP   r      |  ZIP            r
-  FPX   r       PEF   r/w                  |  (and more)
+  3FR   r       GZ    r       PEF   r/w    |  EXIF           r/w/c
+  3G2   r       HDP   r/w     PGM   r/w    |  GPS            r/w/c
+  3GP   r       HTML  r       PICT  r      |  IPTC           r/w/c
+  ACR   r       ICC   r/w/c   PNG   r/w    |  XMP            r/w/c
+  AI    r/w     IIQ   r       PPM   r/w    |  MakerNotes     r/w/c
+  AIFF  r       IND   r/w     PPT   r      |  Photoshop IRB  r/w/c
+  APE   r       ITC   r       PPTX  r      |  ICC Profile    r/w/c
+  ARW   r       JNG   r/w     PS    r/w    |  MIE            r/w/c
+  ASF   r       JP2   r/w     PSD   r/w    |  JFIF           r/w/c
+  AVI   r       JPEG  r/w     QTIF  r      |  Ducky APP12    r/w/c
+  BMP   r       K25   r       RA    r      |  PDF            r/w/c
+  BTF   r       KDC   r       RAF   r/w    |  CIFF           r/w
+  COS   r       KEY   r       RAM   r      |  AFCP           r/w
+  CR2   r/w     LNK   r       RAW   r/w    |  JPEG 2000      r
+  CRW   r/w     M2TS  r       RIFF  r      |  DICOM          r
+  CS1   r/w     M4A/V r       RW2   r/w    |  Flash          r
+  DCM   r       MEF   r/w     RWL   r/w    |  FlashPix       r
+  DCP   r/w     MIE   r/w/c   RWZ   r      |  QuickTime      r
+  DCR   r       MIFF  r       RM    r      |  GeoTIFF        r
+  DIVX  r       MNG   r/w     SO    r      |  PrintIM        r
+  DJVU  r       MOS   r/w     SR2   r      |  ID3            r
+  DLL   r       MOV   r       SRF   r      |  Kodak Meta     r
+  DNG   r/w     MP3   r       SVG   r      |  Ricoh RMETA    r
+  DOC   r       MP4   r       SWF   r      |  Picture Info   r
+  DOCX  r       MPC   r       THM   r/w    |  Adobe APP14    r
+  DVB   r       MPG   r       TIFF  r/w    |  MPF            r
+  DYLIB r       MPO   r/w     VRD   r/w/c  |  Stim           r
+  EIP   r       MQV   r       WAV   r      |  APE            r
+  EPS   r/w     MRW   r/w     WDP   r/w    |  Vorbis         r
+  ERF   r/w     NEF   r/w     WMA   r      |  SPIFF          r
+  EXE   r       NRW   r/w     WMV   r      |  DjVu           r
+  EXIF  r/w/c   NUMBERS r     X3F   r      |  M2TS           r
+  F4A/V r       OGG   r       XLS   r      |  PE/COFF        r
+  FLAC  r       ORF   r/w     XLSX  r      |  AVCHD          r
+  FLV   r       PAGES r       XMP   r/w/c  |  ZIP            r
+  FPX   r       PBM   r/w     ZIP   r      |  (and more)
+  GIF   r/w     PDF   r/w  
+
 Więcej informacji o możliwościach pakietu ExifTool znajduje się w
 pliku html/index.html.
 
