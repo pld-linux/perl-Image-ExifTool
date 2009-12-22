@@ -8,13 +8,13 @@
 Summary:	Perl module for reading and writing image metadata
 Summary(pl.UTF-8):	Moduł Perla do czytania i zapisywania metadanych w plikach graficznych
 Name:		perl-Image-ExifTool
-Version:	8.01
+Version:	8.03
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.sno.phy.queensu.ca/~phil/exiftool/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	e9721ce9b8ff1e51ec679286b20c8802
+# Source0-md5:	3b59c709450f04847ec550ac269cd295
 URL:		http://www.sno.phy.queensu.ca/~phil/exiftool/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -70,7 +70,7 @@ supported by ExifTool (r = read, w = write, c = create):
   FLAC  r       ORF   r/w     XLSX  r      |  AVCHD          r
   FLV   r       PAGES r       XMP   r/w/c  |  ZIP            r
   FPX   r       PBM   r/w     ZIP   r      |  (and more)
-  GIF   r/w     PDF   r/w  
+  GIF   r/w     PDF   r/w
 
 See html/index.html for more details about ExifTool features.
 
@@ -124,7 +124,7 @@ Lista formatów plików i metadanych obsługiwanych przez ExifTool
   FLAC  r       ORF   r/w     XLSX  r      |  AVCHD          r
   FLV   r       PAGES r       XMP   r/w/c  |  ZIP            r
   FPX   r       PBM   r/w     ZIP   r      |  (and more)
-  GIF   r/w     PDF   r/w  
+  GIF   r/w     PDF   r/w
 
 Więcej informacji o możliwościach pakietu ExifTool znajduje się w
 pliku html/index.html.
