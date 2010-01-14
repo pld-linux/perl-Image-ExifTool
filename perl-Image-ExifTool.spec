@@ -8,13 +8,13 @@
 Summary:	Perl module for reading and writing image metadata
 Summary(pl.UTF-8):	Moduł Perla do czytania i zapisywania metadanych w plikach graficznych
 Name:		perl-Image-ExifTool
-Version:	8.03
+Version:	8.06
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.sno.phy.queensu.ca/~phil/exiftool/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	3b59c709450f04847ec550ac269cd295
+# Source0-md5:	0bd3f3d5b5a4cfbad9fdb7480bc36ab4
 URL:		http://www.sno.phy.queensu.ca/~phil/exiftool/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -41,7 +41,7 @@ supported by ExifTool (r = read, w = write, c = create):
   AI    r/w     IIQ   r       PPM   r/w    |  MakerNotes     r/w/c
   AIFF  r       IND   r/w     PPT   r      |  Photoshop IRB  r/w/c
   APE   r       ITC   r       PPTX  r      |  ICC Profile    r/w/c
-  ARW   r       JNG   r/w     PS    r/w    |  MIE            r/w/c
+  ARW   r/w     JNG   r/w     PS    r/w    |  MIE            r/w/c
   ASF   r       JP2   r/w     PSD   r/w    |  JFIF           r/w/c
   AVI   r       JPEG  r/w     QTIF  r      |  Ducky APP12    r/w/c
   BMP   r       K25   r       RA    r      |  PDF            r/w/c
@@ -95,7 +95,7 @@ Lista formatów plików i metadanych obsługiwanych przez ExifTool
   AI    r/w     IIQ   r       PPM   r/w    |  MakerNotes     r/w/c
   AIFF  r       IND   r/w     PPT   r      |  Photoshop IRB  r/w/c
   APE   r       ITC   r       PPTX  r      |  ICC Profile    r/w/c
-  ARW   r       JNG   r/w     PS    r/w    |  MIE            r/w/c
+  ARW   r/w     JNG   r/w     PS    r/w    |  MIE            r/w/c
   ASF   r       JP2   r/w     PSD   r/w    |  JFIF           r/w/c
   AVI   r       JPEG  r/w     QTIF  r      |  Ducky APP12    r/w/c
   BMP   r       K25   r       RA    r      |  PDF            r/w/c
