@@ -18,6 +18,12 @@ Source0:	http://www.sno.phy.queensu.ca/~phil/exiftool/%{pdir}-%{pnam}-%{version}
 URL:		http://www.sno.phy.queensu.ca/~phil/exiftool/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+%if %{with tests}
+BuildRequires:	perl-Archive-Zip
+BuildRequires:	perl-Digest-MD5
+BuildRequires:	perl-Encode
+%endif
+Requires:	perl-Encode
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -136,9 +142,7 @@ pliku html/index.html.
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor \
 	destdir=$RPM_BUILD_ROOT
-%{__make} \
-	CC="%{__cc}" \
-	OPTIMIZE="%{rpmcflags}"
+%{__make}
 
 %{?with_tests:%{__make} test}
 
