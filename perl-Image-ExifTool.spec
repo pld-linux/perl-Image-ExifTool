@@ -8,13 +8,13 @@
 Summary:	Perl module for reading and writing image metadata
 Summary(pl.UTF-8):	Moduł Perla do czytania i zapisywania metadanych w plikach graficznych
 Name:		perl-Image-ExifTool
-Version:	8.10
-Release:	2
+Version:	8.11
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.sno.phy.queensu.ca/~phil/exiftool/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	ecf64a7e032de5d165eed1793d0ceac5
+# Source0-md5:	91294d9f15fd019914621e6766f9d470
 URL:		http://www.sno.phy.queensu.ca/~phil/exiftool/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
