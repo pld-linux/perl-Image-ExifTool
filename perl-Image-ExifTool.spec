@@ -8,13 +8,13 @@
 Summary:	Perl module for reading and writing image metadata
 Summary(pl.UTF-8):	Moduł Perla do czytania i zapisywania metadanych w plikach graficznych
 Name:		perl-Image-ExifTool
-Version:	8.12
+Version:	8.13
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.sno.phy.queensu.ca/~phil/exiftool/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	c51d57c502f212c16ddb12c2e9275544
+# Source0-md5:	643d7a69cf97dabf30cba34426a23048
 URL:		http://www.sno.phy.queensu.ca/~phil/exiftool/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -45,23 +45,23 @@ supported by ExifTool (r = read, w = write, c = create):
   3GP   r     | DVB   r     | KEY   r     | PDF   r/w   | SO    r
   ACR   r     | DYLIB r     | LNK   r     | PEF   r/w   | SR2   r/w
   AFM   r     | EIP   r     | M2TS  r     | PFA   r     | SRF   r
-  AI    r/w   | EPS   r/w   | M4A/V r     | PFB   r     | SVG   r
-  AIFF  r     | ERF   r/w   | MEF   r/w   | PFM   r     | SWF   r
-  APE   r     | EXE   r     | MIE   r/w/c | PGM   r/w   | THM   r/w
-  ARW   r/w   | EXIF  r/w/c | MIFF  r     | PICT  r     | TIFF  r/w
-  ASF   r     | F4A/V r     | MNG   r/w   | PNG   r/w   | TTC   r
-  AVI   r     | FLA   r     | MOS   r/w   | PPM   r/w   | TTF   r
-  BMP   r     | FLAC  r     | MOV   r     | PPT   r     | VRD   r/w/c
-  BTF   r     | FLV   r     | MP3   r     | PPTX  r     | WAV   r
-  COS   r     | FPX   r     | MP4   r     | PS    r/w   | WDP   r/w
-  CR2   r/w   | GIF   r/w   | MPC   r     | PSB   r/w   | WMA   r
-  CRW   r/w   | GZ    r     | MPG   r     | PSD   r/w   | WMV   r
-  CS1   r/w   | HDP   r/w   | MPO   r/w   | PSP   r     | X3F   r
-  DCM   r     | HTML  r     | MQV   r     | QTIF  r     | XLS   r
-  DCP   r/w   | ICC   r/w/c | MRW   r/w   | RA    r     | XLSX  r
-  DCR   r     | IIQ   r     | NEF   r/w   | RAF   r/w   | XMP   r/w/c
-  DFONT r     | IND   r/w   | NRW   r/w   | RAM   r     | ZIP   r
-  DIVX  r     | ITC   r     | NUMBERS r   | RAW   r/w   |
+  AI    r/w   | EPS   r/w   | M4A/V r     | PFB   r     | SRW   r/w
+  AIFF  r     | ERF   r/w   | MEF   r/w   | PFM   r     | SVG   r
+  APE   r     | EXE   r     | MIE   r/w/c | PGM   r/w   | SWF   r
+  ARW   r/w   | EXIF  r/w/c | MIFF  r     | PICT  r     | THM   r/w
+  ASF   r     | F4A/V r     | MNG   r/w   | PNG   r/w   | TIFF  r/w
+  AVI   r     | FLA   r     | MOS   r/w   | PPM   r/w   | TTC   r
+  BMP   r     | FLAC  r     | MOV   r     | PPT   r     | TTF   r
+  BTF   r     | FLV   r     | MP3   r     | PPTX  r     | VRD   r/w/c
+  COS   r     | FPX   r     | MP4   r     | PS    r/w   | WAV   r
+  CR2   r/w   | GIF   r/w   | MPC   r     | PSB   r/w   | WDP   r/w
+  CRW   r/w   | GZ    r     | MPG   r     | PSD   r/w   | WMA   r
+  CS1   r/w   | HDP   r/w   | MPO   r/w   | PSP   r     | WMV   r
+  DCM   r     | HTML  r     | MQV   r     | QTIF  r     | X3F   r
+  DCP   r/w   | ICC   r/w/c | MRW   r/w   | RA    r     | XLS   r
+  DCR   r     | IIQ   r     | NEF   r/w   | RAF   r/w   | XLSX  r
+  DFONT r     | IND   r/w   | NRW   r/w   | RAM   r     | XMP   r/w/c
+  DIVX  r     | ITC   r     | NUMBERS r   | RAW   r/w   | ZIP   r
   DJVU  r     | JNG   r/w   | OGG   r     | RIFF  r     |
   DLL   r     | JP2   r/w   | ORF   r/w   | RW2   r/w   |
   DNG   r/w   | JPEG  r/w   | OTF   r     | RWL   r/w   |
@@ -104,23 +104,23 @@ Lista formatów plików i metadanych obsługiwanych przez ExifTool
   3GP   r     | DVB   r     | KEY   r     | PDF   r/w   | SO    r
   ACR   r     | DYLIB r     | LNK   r     | PEF   r/w   | SR2   r/w
   AFM   r     | EIP   r     | M2TS  r     | PFA   r     | SRF   r
-  AI    r/w   | EPS   r/w   | M4A/V r     | PFB   r     | SVG   r
-  AIFF  r     | ERF   r/w   | MEF   r/w   | PFM   r     | SWF   r
-  APE   r     | EXE   r     | MIE   r/w/c | PGM   r/w   | THM   r/w
-  ARW   r/w   | EXIF  r/w/c | MIFF  r     | PICT  r     | TIFF  r/w
-  ASF   r     | F4A/V r     | MNG   r/w   | PNG   r/w   | TTC   r
-  AVI   r     | FLA   r     | MOS   r/w   | PPM   r/w   | TTF   r
-  BMP   r     | FLAC  r     | MOV   r     | PPT   r     | VRD   r/w/c
-  BTF   r     | FLV   r     | MP3   r     | PPTX  r     | WAV   r
-  COS   r     | FPX   r     | MP4   r     | PS    r/w   | WDP   r/w
-  CR2   r/w   | GIF   r/w   | MPC   r     | PSB   r/w   | WMA   r
-  CRW   r/w   | GZ    r     | MPG   r     | PSD   r/w   | WMV   r
-  CS1   r/w   | HDP   r/w   | MPO   r/w   | PSP   r     | X3F   r
-  DCM   r     | HTML  r     | MQV   r     | QTIF  r     | XLS   r
-  DCP   r/w   | ICC   r/w/c | MRW   r/w   | RA    r     | XLSX  r
-  DCR   r     | IIQ   r     | NEF   r/w   | RAF   r/w   | XMP   r/w/c
-  DFONT r     | IND   r/w   | NRW   r/w   | RAM   r     | ZIP   r
-  DIVX  r     | ITC   r     | NUMBERS r   | RAW   r/w   |
+  AI    r/w   | EPS   r/w   | M4A/V r     | PFB   r     | SRW   r/w
+  AIFF  r     | ERF   r/w   | MEF   r/w   | PFM   r     | SVG   r
+  APE   r     | EXE   r     | MIE   r/w/c | PGM   r/w   | SWF   r
+  ARW   r/w   | EXIF  r/w/c | MIFF  r     | PICT  r     | THM   r/w
+  ASF   r     | F4A/V r     | MNG   r/w   | PNG   r/w   | TIFF  r/w
+  AVI   r     | FLA   r     | MOS   r/w   | PPM   r/w   | TTC   r
+  BMP   r     | FLAC  r     | MOV   r     | PPT   r     | TTF   r
+  BTF   r     | FLV   r     | MP3   r     | PPTX  r     | VRD   r/w/c
+  COS   r     | FPX   r     | MP4   r     | PS    r/w   | WAV   r
+  CR2   r/w   | GIF   r/w   | MPC   r     | PSB   r/w   | WDP   r/w
+  CRW   r/w   | GZ    r     | MPG   r     | PSD   r/w   | WMA   r
+  CS1   r/w   | HDP   r/w   | MPO   r/w   | PSP   r     | WMV   r
+  DCM   r     | HTML  r     | MQV   r     | QTIF  r     | X3F   r
+  DCP   r/w   | ICC   r/w/c | MRW   r/w   | RA    r     | XLS   r
+  DCR   r     | IIQ   r     | NEF   r/w   | RAF   r/w   | XLSX  r
+  DFONT r     | IND   r/w   | NRW   r/w   | RAM   r     | XMP   r/w/c
+  DIVX  r     | ITC   r     | NUMBERS r   | RAW   r/w   | ZIP   r
   DJVU  r     | JNG   r/w   | OGG   r     | RIFF  r     |
   DLL   r     | JP2   r/w   | ORF   r/w   | RW2   r/w   |
   DNG   r/w   | JPEG  r/w   | OTF   r     | RWL   r/w   |
