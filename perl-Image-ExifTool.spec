@@ -27,6 +27,58 @@ Requires:	perl-Encode
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+# awk -vname="File Types" '{ if ( start ) { if ( $0 ~ /^$/ ) { print "%{nil}"; exit 0 } print $0 "\\" } if ( $0 ~ name ) start = 1; }' < README
+%define supported_file_types \
+  ------------+-------------+-------------+-------------+------------\
+  3FR   r     | DVB   r     | M4A/V r     | PBM   r/w   | RWL   r/w\
+  3G2   r     | DYLIB r     | MEF   r/w   | PDF   r/w   | RWZ   r\
+  3GP   r     | EIP   r     | MIE   r/w/c | PEF   r/w   | RM    r\
+  ACR   r     | EPS   r/w   | MIFF  r     | PFA   r     | SO    r\
+  AFM   r     | ERF   r/w   | MKA   r     | PFB   r     | SR2   r/w\
+  AI    r/w   | EXE   r     | MKS   r     | PFM   r     | SRF   r\
+  AIFF  r     | EXIF  r/w/c | MKV   r     | PGF   r     | SRW   r/w\
+  APE   r     | F4A/V r     | MNG   r/w   | PGM   r/w   | SVG   r\
+  ARW   r/w   | FLA   r     | MOS   r/w   | PICT  r     | SWF   r\
+  ASF   r     | FLAC  r     | MOV   r     | PMP   r     | THM   r/w\
+  AVI   r     | FLV   r     | MP3   r     | PNG   r/w   | TIFF  r/w\
+  BMP   r     | FPX   r     | MP4   r     | PPM   r/w   | TTC   r\
+  BTF   r     | GIF   r/w   | MPC   r     | PPT   r     | TTF   r\
+  COS   r     | GZ    r     | MPG   r     | PPTX  r     | VRD   r/w/c\
+  CR2   r/w   | HDP   r/w   | MPO   r/w   | PS    r/w   | WAV   r\
+  CRW   r/w   | HTML  r     | MQV   r     | PSB   r/w   | WDP   r/w\
+  CS1   r/w   | ICC   r/w/c | MRW   r/w   | PSD   r/w   | WEBP  r\
+  DCM   r     | IIQ   r/w   | MXF   r     | PSP   r     | WEBM  r\
+  DCP   r/w   | IND   r/w   | NEF   r/w   | QTIF  r     | WMA   r\
+  DCR   r     | ITC   r     | NRW   r/w   | RA    r     | WMV   r\
+  DFONT r     | JNG   r/w   | NUMBERS r   | RAF   r/w   | X3F   r/w\
+  DIVX  r     | JP2   r/w   | ODP   r     | RAM   r     | XCF   r\
+  DJVU  r     | JPEG  r/w   | ODS   r     | RAR   r     | XLS   r\
+  DLL   r     | K25   r     | ODT   r     | RAW   r/w   | XLSX  r\
+  DNG   r/w   | KDC   r     | OGG   r     | RIFF  r     | XMP   r/w/c\
+  DOC   r     | KEY   r     | ORF   r/w   | RSRC  r     | ZIP   r\
+  DOCX  r     | LNK   r     | OTF   r     | RTF   r     |\
+  DV    r     | M2TS  r     | PAGES r     | RW2   r/w   |\
+%{nil}
+
+# awk -vname="Meta Information" '{ if ( start ) { if ( $0 ~ /^$/ ) { print "%{nil}"; exit 0 } print $0 "\\" } if ( $0 ~ name ) start = 1; }' < README
+%define supported_meta_information \
+  ----------------------+----------------------+---------------------\
+  EXIF           r/w/c  |  Kodak Meta     r/w  |  Picture Info   r\
+  GPS            r/w/c  |  FotoStation    r/w  |  Adobe APP14    r\
+  IPTC           r/w/c  |  PhotoMechanic  r/w  |  MPF            r\
+  XMP            r/w/c  |  JPEG 2000      r    |  Stim           r\
+  MakerNotes     r/w/c  |  DICOM          r    |  APE            r\
+  Photoshop IRB  r/w/c  |  Flash          r    |  Vorbis         r\
+  ICC Profile    r/w/c  |  FlashPix       r    |  SPIFF          r\
+  MIE            r/w/c  |  QuickTime      r    |  DjVu           r\
+  JFIF           r/w/c  |  Matroska       r    |  M2TS           r\
+  Ducky APP12    r/w/c  |  GeoTIFF        r    |  PE/COFF        r\
+  PDF            r/w/c  |  PrintIM        r    |  AVCHD          r\
+  CIFF           r/w    |  ID3            r    |  ZIP            r\
+  AFCP           r/w    |  Ricoh RMETA    r    |  (and more)\
+%{nil}
+
+
 %description
 ExifTool is a customizable set of Perl modules plus an application
 script for reading and writing meta information in a wide variety of
@@ -39,52 +91,9 @@ Sigma/Foveon and Sony.
 Below is a list of file types and meta information formats currently
 supported by ExifTool (r = read, w = write, c = create):
 
-  File Types
-  ------------+-------------+-------------+-------------+------------
-  3FR   r     | DVB   r     | M4A/V r     | PBM   r/w   | RWL   r/w
-  3G2   r     | DYLIB r     | MEF   r/w   | PDF   r/w   | RWZ   r
-  3GP   r     | EIP   r     | MIE   r/w/c | PEF   r/w   | RM    r
-  ACR   r     | EPS   r/w   | MIFF  r     | PFA   r     | SO    r
-  AFM   r     | ERF   r/w   | MKA   r     | PFB   r     | SR2   r/w
-  AI    r/w   | EXE   r     | MKS   r     | PFM   r     | SRF   r
-  AIFF  r     | EXIF  r/w/c | MKV   r     | PGF   r     | SRW   r/w
-  APE   r     | F4A/V r     | MNG   r/w   | PGM   r/w   | SVG   r
-  ARW   r/w   | FLA   r     | MOS   r/w   | PICT  r     | SWF   r
-  ASF   r     | FLAC  r     | MOV   r     | PMP   r     | THM   r/w
-  AVI   r     | FLV   r     | MP3   r     | PNG   r/w   | TIFF  r/w
-  BMP   r     | FPX   r     | MP4   r     | PPM   r/w   | TTC   r
-  BTF   r     | GIF   r/w   | MPC   r     | PPT   r     | TTF   r
-  COS   r     | GZ    r     | MPG   r     | PPTX  r     | VRD   r/w/c
-  CR2   r/w   | HDP   r/w   | MPO   r/w   | PS    r/w   | WAV   r
-  CRW   r/w   | HTML  r     | MQV   r     | PSB   r/w   | WDP   r/w
-  CS1   r/w   | ICC   r/w/c | MRW   r/w   | PSD   r/w   | WEBP  r
-  DCM   r     | IIQ   r/w   | MXF   r     | PSP   r     | WEBM  r
-  DCP   r/w   | IND   r/w   | NEF   r/w   | QTIF  r     | WMA   r
-  DCR   r     | ITC   r     | NRW   r/w   | RA    r     | WMV   r
-  DFONT r     | JNG   r/w   | NUMBERS r   | RAF   r/w   | X3F   r/w
-  DIVX  r     | JP2   r/w   | ODP   r     | RAM   r     | XCF   r
-  DJVU  r     | JPEG  r/w   | ODS   r     | RAR   r     | XLS   r
-  DLL   r     | K25   r     | ODT   r     | RAW   r/w   | XLSX  r
-  DNG   r/w   | KDC   r     | OGG   r     | RIFF  r     | XMP   r/w/c
-  DOC   r     | KEY   r     | ORF   r/w   | RSRC  r     | ZIP   r
-  DOCX  r     | LNK   r     | OTF   r     | RTF   r     |
-  DV    r     | M2TS  r     | PAGES r     | RW2   r/w   |
+- File Types%{supported_file_types}
 
-  Meta Information
-  ----------------------+----------------------+---------------------
-  EXIF           r/w/c  |  Kodak Meta     r/w  |  Picture Info   r
-  GPS            r/w/c  |  FotoStation    r/w  |  Adobe APP14    r
-  IPTC           r/w/c  |  PhotoMechanic  r/w  |  MPF            r
-  XMP            r/w/c  |  JPEG 2000      r    |  Stim           r
-  MakerNotes     r/w/c  |  DICOM          r    |  APE            r
-  Photoshop IRB  r/w/c  |  Flash          r    |  Vorbis         r
-  ICC Profile    r/w/c  |  FlashPix       r    |  SPIFF          r
-  MIE            r/w/c  |  QuickTime      r    |  DjVu           r
-  JFIF           r/w/c  |  Matroska       r    |  M2TS           r
-  Ducky APP12    r/w/c  |  GeoTIFF        r    |  PE/COFF        r
-  PDF            r/w/c  |  PrintIM        r    |  AVCHD          r
-  CIFF           r/w    |  ID3            r    |  ZIP            r
-  AFCP           r/w    |  Ricoh RMETA    r    |  (and more)
+- Meta Information%{supported_meta_information}
 
 See html/index.html for more details about ExifTool features.
 
@@ -100,58 +109,25 @@ Sigma/Foveon i Sony.
 Lista formatów plików i metadanych obsługiwanych przez ExifTool
 (r = odczyt, w = zapis, c = tworzenie):
 
-  Formaty plików
-  ------------+-------------+-------------+-------------+------------
-  3FR   r     | DVB   r     | M4A/V r     | PBM   r/w   | RWL   r/w
-  3G2   r     | DYLIB r     | MEF   r/w   | PDF   r/w   | RWZ   r
-  3GP   r     | EIP   r     | MIE   r/w/c | PEF   r/w   | RM    r
-  ACR   r     | EPS   r/w   | MIFF  r     | PFA   r     | SO    r
-  AFM   r     | ERF   r/w   | MKA   r     | PFB   r     | SR2   r/w
-  AI    r/w   | EXE   r     | MKS   r     | PFM   r     | SRF   r
-  AIFF  r     | EXIF  r/w/c | MKV   r     | PGF   r     | SRW   r/w
-  APE   r     | F4A/V r     | MNG   r/w   | PGM   r/w   | SVG   r
-  ARW   r/w   | FLA   r     | MOS   r/w   | PICT  r     | SWF   r
-  ASF   r     | FLAC  r     | MOV   r     | PMP   r     | THM   r/w
-  AVI   r     | FLV   r     | MP3   r     | PNG   r/w   | TIFF  r/w
-  BMP   r     | FPX   r     | MP4   r     | PPM   r/w   | TTC   r
-  BTF   r     | GIF   r/w   | MPC   r     | PPT   r     | TTF   r
-  COS   r     | GZ    r     | MPG   r     | PPTX  r     | VRD   r/w/c
-  CR2   r/w   | HDP   r/w   | MPO   r/w   | PS    r/w   | WAV   r
-  CRW   r/w   | HTML  r     | MQV   r     | PSB   r/w   | WDP   r/w
-  CS1   r/w   | ICC   r/w/c | MRW   r/w   | PSD   r/w   | WEBP  r
-  DCM   r     | IIQ   r/w   | MXF   r     | PSP   r     | WEBM  r
-  DCP   r/w   | IND   r/w   | NEF   r/w   | QTIF  r     | WMA   r
-  DCR   r     | ITC   r     | NRW   r/w   | RA    r     | WMV   r
-  DFONT r     | JNG   r/w   | NUMBERS r   | RAF   r/w   | X3F   r/w
-  DIVX  r     | JP2   r/w   | ODP   r     | RAM   r     | XCF   r
-  DJVU  r     | JPEG  r/w   | ODS   r     | RAR   r     | XLS   r
-  DLL   r     | K25   r     | ODT   r     | RAW   r/w   | XLSX  r
-  DNG   r/w   | KDC   r     | OGG   r     | RIFF  r     | XMP   r/w/c
-  DOC   r     | KEY   r     | ORF   r/w   | RSRC  r     | ZIP   r
-  DOCX  r     | LNK   r     | OTF   r     | RTF   r     |
-  DV    r     | M2TS  r     | PAGES r     | RW2   r/w   |
+- Formaty plików%{supported_file_types}
 
-  Formaty metadanych
-  ----------------------+----------------------+---------------------
-  EXIF           r/w/c  |  Kodak Meta     r/w  |  Picture Info   r
-  GPS            r/w/c  |  FotoStation    r/w  |  Adobe APP14    r
-  IPTC           r/w/c  |  PhotoMechanic  r/w  |  MPF            r
-  XMP            r/w/c  |  JPEG 2000      r    |  Stim           r
-  MakerNotes     r/w/c  |  DICOM          r    |  APE            r
-  Photoshop IRB  r/w/c  |  Flash          r    |  Vorbis         r
-  ICC Profile    r/w/c  |  FlashPix       r    |  SPIFF          r
-  MIE            r/w/c  |  QuickTime      r    |  DjVu           r
-  JFIF           r/w/c  |  Matroska       r    |  M2TS           r
-  Ducky APP12    r/w/c  |  GeoTIFF        r    |  PE/COFF        r
-  PDF            r/w/c  |  PrintIM        r    |  AVCHD          r
-  CIFF           r/w    |  ID3            r    |  ZIP            r
-  AFCP           r/w    |  Ricoh RMETA    r    |  (and more)
+- Formaty metadanych%{supported_meta_information}
 
 Więcej informacji o możliwościach pakietu ExifTool znajduje się w
 pliku html/index.html.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
+
+# make sure description is up-to-date
+echo "%{supported_file_types}" > supported_file_types.old.txt
+echo "%{supported_meta_information}" > supported_meta_information.old.txt
+
+awk -vname="File Types" '{ if ( start ) { if ( $0 ~ /^$/ ) { print ""; exit 0 } print } if ( $0 ~ name ) { start = 1; print "" }; }' < README > supported_file_types.new.txt
+awk -vname="Meta Information" '{ if ( start ) { if ( $0 ~ /^$/ ) { print ""; exit 0 } print } if ( $0 ~ name ) { start = 1; print "" }; }' < README > supported_meta_information.new.txt
+
+cmp supported_file_types.old.txt supported_file_types.new.txt
+cmp supported_meta_information.old.txt supported_meta_information.new.txt
 
 %build
 %{__perl} Makefile.PL \
