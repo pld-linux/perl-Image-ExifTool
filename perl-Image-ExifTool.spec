@@ -8,13 +8,13 @@
 Summary:	Perl module for reading and writing image metadata
 Summary(pl.UTF-8):	Moduł Perla do czytania i zapisywania metadanych w plikach graficznych
 Name:		perl-Image-ExifTool
-Version:	8.48
+Version:	8.51
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.sno.phy.queensu.ca/~phil/exiftool/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	ae1e34be6240b30997b0aaf604ef97a4
+# Source0-md5:	70e8530f60d790122db87c852cfcab9b
 URL:		http://www.sno.phy.queensu.ca/~phil/exiftool/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -63,19 +63,20 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 # awk -vname="Meta Information" '{ if ( start ) { if ( $0 ~ /^$/ ) { print "%{nil}"; exit 0 } print $0 "\\" } if ( $0 ~ name ) start = 1; }' < README
 %define supported_meta_information \
   ----------------------+----------------------+---------------------\
-  EXIF           r/w/c  |  Kodak Meta     r/w  |  Picture Info   r\
-  GPS            r/w/c  |  FotoStation    r/w  |  Adobe APP14    r\
-  IPTC           r/w/c  |  PhotoMechanic  r/w  |  MPF            r\
-  XMP            r/w/c  |  JPEG 2000      r    |  Stim           r\
-  MakerNotes     r/w/c  |  DICOM          r    |  APE            r\
-  Photoshop IRB  r/w/c  |  Flash          r    |  Vorbis         r\
-  ICC Profile    r/w/c  |  FlashPix       r    |  SPIFF          r\
-  MIE            r/w/c  |  QuickTime      r    |  DjVu           r\
-  JFIF           r/w/c  |  Matroska       r    |  M2TS           r\
-  Ducky APP12    r/w/c  |  GeoTIFF        r    |  PE/COFF        r\
-  PDF            r/w/c  |  PrintIM        r    |  AVCHD          r\
-  CIFF           r/w    |  ID3            r    |  ZIP            r\
-  AFCP           r/w    |  Ricoh RMETA    r    |  (and more)\
+  EXIF           r/w/c  |  CIFF           r/w  |  Ricoh RMETA    r\
+  GPS            r/w/c  |  AFCP           r/w  |  Picture Info   r\
+  IPTC           r/w/c  |  Kodak Meta     r/w  |  Adobe APP14    r\
+  XMP            r/w/c  |  FotoStation    r/w  |  MPF            r\
+  MakerNotes     r/w/c  |  PhotoMechanic  r/w  |  Stim           r\
+  Photoshop IRB  r/w/c  |  JPEG 2000      r    |  APE            r\
+  ICC Profile    r/w/c  |  DICOM          r    |  Vorbis         r\
+  MIE            r/w/c  |  Flash          r    |  SPIFF          r\
+  JFIF           r/w/c  |  FlashPix       r    |  DjVu           r\
+  Ducky APP12    r/w/c  |  QuickTime      r    |  M2TS           r\
+  PDF            r/w/c  |  Matroska       r    |  PE/COFF        r\
+  PNG            r/w/c  |  GeoTIFF        r    |  AVCHD          r\
+  Canon VRD      r/w/c  |  PrintIM        r    |  ZIP            r\
+  Nikon Capture  r/w/c  |  ID3            r    |  (and more)\
 %{nil}
 
 
@@ -142,6 +143,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} $RPM_BUILD_ROOT%{perl_vendorlib}/File/RandomAccess.pod \
+	$RPM_BUILD_ROOT%{perl_vendorlib}/Image/ExifTool{,/*}.pod \
+	$RPM_BUILD_ROOT%{perl_vendorlib}/Image/ExifTool/README
 
 %clean
 rm -rf $RPM_BUILD_ROOT
