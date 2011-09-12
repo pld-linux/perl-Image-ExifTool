@@ -8,13 +8,13 @@
 Summary:	Perl module for reading and writing image metadata
 Summary(pl.UTF-8):	Moduł Perla do czytania i zapisywania metadanych w plikach graficznych
 Name:		perl-Image-ExifTool
-Version:	8.57
+Version:	8.64
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.sno.phy.queensu.ca/~phil/exiftool/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	d13c54866a402bbba570f46e404bd66e
+# Source0-md5:	e578980439eecd73ebac80f56240a10d
 URL:		http://www.sno.phy.queensu.ca/~phil/exiftool/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -30,34 +30,35 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 # awk -vname="File Types" '{ if ( start ) { if ( $0 ~ /^$/ ) { print "%{nil}"; exit 0 } print $0 "\\" } if ( $0 ~ name ) start = 1; }' < README
 %define supported_file_types \
   ------------+-------------+-------------+-------------+------------\
-  3FR   r     | DVB   r     | M4A/V r     | PBM   r/w   | RWL   r/w\
-  3G2   r     | DYLIB r     | MEF   r/w   | PDF   r/w   | RWZ   r\
-  3GP   r     | EIP   r     | MIE   r/w/c | PEF   r/w   | RM    r\
-  ACR   r     | EPS   r/w   | MIFF  r     | PFA   r     | SO    r\
-  AFM   r     | ERF   r/w   | MKA   r     | PFB   r     | SR2   r/w\
-  AI    r/w   | EXE   r     | MKS   r     | PFM   r     | SRF   r\
-  AIFF  r     | EXIF  r/w/c | MKV   r     | PGF   r     | SRW   r/w\
-  APE   r     | F4A/V r     | MNG   r/w   | PGM   r/w   | SVG   r\
-  ARW   r/w   | FLA   r     | MOS   r/w   | PICT  r     | SWF   r\
-  ASF   r     | FLAC  r     | MOV   r     | PMP   r     | THM   r/w\
-  AVI   r     | FLV   r     | MP3   r     | PNG   r/w   | TIFF  r/w\
-  BMP   r     | FPX   r     | MP4   r     | PPM   r/w   | TTC   r\
-  BTF   r     | GIF   r/w   | MPC   r     | PPT   r     | TTF   r\
-  COS   r     | GZ    r     | MPG   r     | PPTX  r     | VRD   r/w/c\
-  CR2   r/w   | HDP   r/w   | MPO   r/w   | PS    r/w   | VSD   r\
-  CRW   r/w   | HTML  r     | MQV   r     | PSB   r/w   | WAV   r\
-  CS1   r/w   | ICC   r/w/c | MRW   r/w   | PSD   r/w   | WDP   r/w\
-  DCM   r     | IIQ   r/w   | MXF   r     | PSP   r     | WEBP  r\
-  DCP   r/w   | IND   r/w   | NEF   r/w   | QTIF  r     | WEBM  r\
-  DCR   r     | ITC   r     | NRW   r/w   | RA    r     | WMA   r\
-  DFONT r     | JNG   r/w   | NUMBERS r   | RAF   r/w   | WMV   r\
-  DIVX  r     | JP2   r/w   | ODP   r     | RAM   r     | X3F   r/w\
-  DJVU  r     | JPEG  r/w   | ODS   r     | RAR   r     | XCF   r\
-  DLL   r     | K25   r     | ODT   r     | RAW   r/w   | XLS   r\
-  DNG   r/w   | KDC   r     | OGG   r     | RIFF  r     | XLSX  r\
-  DOC   r     | KEY   r     | ORF   r/w   | RSRC  r     | XMP   r/w/c\
-  DOCX  r     | LNK   r     | OTF   r     | RTF   r     | ZIP   r\
-  DV    r     | M2TS  r     | PAGES r     | RW2   r/w   |\
+  3FR   r     | DVB   r     | M4A/V r     | PBM   r/w   | RWZ   r\
+  3G2   r     | DYLIB r     | MEF   r/w   | PDF   r/w   | RM    r\
+  3GP   r     | EIP   r     | MIE   r/w/c | PEF   r/w   | SO    r\
+  ACR   r     | EPS   r/w   | MIFF  r     | PFA   r     | SR2   r/w\
+  AFM   r     | ERF   r/w   | MKA   r     | PFB   r     | SRF   r\
+  AI    r/w   | EXE   r     | MKS   r     | PFM   r     | SRW   r/w\
+  AIFF  r     | EXIF  r/w/c | MKV   r     | PGF   r     | SVG   r\
+  APE   r     | F4A/V r     | MNG   r/w   | PGM   r/w   | SWF   r\
+  ARW   r/w   | FLA   r     | MOS   r/w   | PICT  r     | THM   r/w\
+  ASF   r     | FLAC  r     | MOV   r     | PMP   r     | TIFF  r/w\
+  AVI   r     | FLV   r     | MP3   r     | PNG   r/w   | TTC   r\
+  BMP   r     | FPX   r     | MP4   r     | PPM   r/w   | TTF   r\
+  BTF   r     | GIF   r/w   | MPC   r     | PPT   r     | VRD   r/w/c\
+  CHM   r     | GZ    r     | MPG   r     | PPTX  r     | VSD   r\
+  COS   r     | HDP   r/w   | MPO   r/w   | PS    r/w   | WAV   r\
+  CR2   r/w   | HTML  r     | MQV   r     | PSB   r/w   | WDP   r/w\
+  CRW   r/w   | ICC   r/w/c | MRW   r/w   | PSD   r/w   | WEBP  r\
+  CS1   r/w   | IIQ   r/w   | MXF   r     | PSP   r     | WEBM  r\
+  DCM   r     | IND   r/w   | NEF   r/w   | QTIF  r     | WMA   r\
+  DCP   r/w   | ITC   r     | NRW   r/w   | RA    r     | WMV   r\
+  DCR   r     | J2C   r     | NUMBERS r   | RAF   r/w   | X3F   r/w\
+  DFONT r     | JNG   r/w   | ODP   r     | RAM   r     | XCF   r\
+  DIVX  r     | JP2   r/w   | ODS   r     | RAR   r     | XLS   r\
+  DJVU  r     | JPEG  r/w   | ODT   r     | RAW   r/w   | XLSX  r\
+  DLL   r     | K25   r     | OGG   r     | RIFF  r     | XMP   r/w/c\
+  DNG   r/w   | KDC   r     | OGV   r     | RSRC  r     | ZIP   r\
+  DOC   r     | KEY   r     | ORF   r/w   | RTF   r     |\
+  DOCX  r     | LNK   r     | OTF   r     | RW2   r/w   |\
+  DV    r     | M2TS  r     | PAGES r     | RWL   r/w   |\
 %{nil}
 
 # awk -vname="Meta Information" '{ if ( start ) { if ( $0 ~ /^$/ ) { print "%{nil}"; exit 0 } print $0 "\\" } if ( $0 ~ name ) start = 1; }' < README
