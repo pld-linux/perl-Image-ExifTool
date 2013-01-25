@@ -170,6 +170,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(en_CA) %{perl_vendorlib}/Image/ExifTool/Lang/en_ca.pm
 %lang(en_GB) %{perl_vendorlib}/Image/ExifTool/Lang/en_gb.pm
 %lang(es) %{perl_vendorlib}/Image/ExifTool/Lang/es.pm
+%lang(fi) %{perl_vendorlib}/Image/ExifTool/Lang/fi.pm
 %lang(fr) %{perl_vendorlib}/Image/ExifTool/Lang/fr.pm
 %lang(it) %{perl_vendorlib}/Image/ExifTool/Lang/it.pm
 %lang(ja) %{perl_vendorlib}/Image/ExifTool/Lang/ja.pm
