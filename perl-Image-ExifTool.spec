@@ -8,13 +8,13 @@
 Summary:	Perl module for reading and writing image metadata
 Summary(pl.UTF-8):	Moduł Perla do czytania i zapisywania metadanych w plikach graficznych
 Name:		perl-Image-ExifTool
-Version:	9.14
+Version:	9.28
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.sno.phy.queensu.ca/~phil/exiftool/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	45e1cde019f2bd484a2d9ce1859d99ee
+# Source0-md5:	4c862a1a5457b4096bf295259154f9bd
 URL:		http://www.sno.phy.queensu.ca/~phil/exiftool/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -30,37 +30,37 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 # awk -vname="File Types" '{ if ( start ) { if ( $0 ~ /^$/ ) { print "%{nil}"; exit 0 } print $0 "\\" } if ( $0 ~ name ) start = 1; }' < README
 %define supported_file_types \
   ------------+-------------+-------------+-------------+------------\
-  3FR   r     | EIP   r     | LNK   r     | PAC   r     | RWL   r/w\
-  3G2   r     | EPS   r/w   | M2TS  r     | PAGES r     | RWZ   r\
-  3GP   r     | ERF   r/w   | M4A/V r     | PBM   r/w   | RM    r\
-  ACR   r     | EXE   r     | MEF   r/w   | PCD   r     | SO    r\
-  AFM   r     | EXIF  r/w/c | MIE   r/w/c | PDF   r/w   | SR2   r/w\
-  AI    r/w   | EXR   r     | MIFF  r     | PEF   r/w   | SRF   r\
-  AIFF  r     | F4A/V r     | MKA   r     | PFA   r     | SRW   r/w\
-  APE   r     | FFF   r/w   | MKS   r     | PFB   r     | SVG   r\
-  ARW   r/w   | FLA   r     | MKV   r     | PFM   r     | SWF   r\
-  ASF   r     | FLAC  r     | MNG   r/w   | PGF   r     | THM   r/w\
-  AVI   r     | FLV   r     | MOS   r/w   | PGM   r/w   | TIFF  r/w\
-  BMP   r     | FPX   r     | MOV   r     | PICT  r     | TTC   r\
-  BTF   r     | GIF   r/w   | MP3   r     | PMP   r     | TTF   r\
-  CHM   r     | GZ    r     | MP4   r     | PNG   r/w   | VRD   r/w/c\
-  COS   r     | HDP   r/w   | MPC   r     | PPM   r/w   | VSD   r\
-  CR2   r/w   | HDR   r     | MPG   r     | PPT   r     | WAV   r\
-  CRW   r/w   | HTML  r     | MPO   r/w   | PPTX  r     | WDP   r/w\
-  CS1   r/w   | ICC   r/w/c | MQV   r     | PS    r/w   | WEBP  r\
-  DCM   r     | IDML  r     | MRW   r/w   | PSB   r/w   | WEBM  r\
-  DCP   r/w   | IIQ   r/w   | MXF   r     | PSD   r/w   | WMA   r\
-  DCR   r     | IND   r/w   | NEF   r/w   | PSP   r     | WMV   r\
-  DFONT r     | INX   r     | NRW   r/w   | QTIF  r     | WV    r\
-  DIVX  r     | ITC   r     | NUMBERS r   | RA    r     | X3F   r/w\
-  DJVU  r     | J2C   r     | ODP   r     | RAF   r/w   | XCF   r\
-  DLL   r     | JNG   r/w   | ODS   r     | RAM   r     | XLS   r\
-  DNG   r/w   | JP2   r/w   | ODT   r     | RAR   r     | XLSX  r\
-  DOC   r     | JPEG  r/w   | OFR   r     | RAW   r/w   | XMP   r/w/c\
-  DOCX  r     | K25   r     | OGG   r     | RIFF  r     | ZIP   r\
-  DV    r     | KDC   r     | OGV   r     | RSRC  r     |\
-  DVB   r     | KEY   r     | ORF   r/w   | RTF   r     |\
-  DYLIB r     | LA    r     | OTF   r     | RW2   r/w   |\
+  3FR   r     | EIP   r     | LA    r     | ORF   r/w   | RSRC  r\
+  3G2   r     | EPS   r/w   | LNK   r     | OTF   r     | RTF   r\
+  3GP   r     | ERF   r/w   | M2TS  r     | PAC   r     | RW2   r/w\
+  ACR   r     | EXE   r     | M4A/V r     | PAGES r     | RWL   r/w\
+  AFM   r     | EXIF  r/w/c | MEF   r/w   | PBM   r/w   | RWZ   r\
+  AI    r/w   | EXR   r     | MIE   r/w/c | PCD   r     | RM    r\
+  AIFF  r     | F4A/V r     | MIFF  r     | PDF   r/w   | SO    r\
+  APE   r     | FFF   r/w   | MKA   r     | PEF   r/w   | SR2   r/w\
+  ARW   r/w   | FLA   r     | MKS   r     | PFA   r     | SRF   r\
+  ASF   r     | FLAC  r     | MKV   r     | PFB   r     | SRW   r/w\
+  AVI   r     | FLV   r     | MNG   r/w   | PFM   r     | SVG   r\
+  BMP   r     | FPF   r     | MODD  r     | PGF   r     | SWF   r\
+  BTF   r     | FPX   r     | MOS   r/w   | PGM   r/w   | THM   r/w\
+  CHM   r     | GIF   r/w   | MOV   r     | PLIST r     | TIFF  r/w\
+  COS   r     | GZ    r     | MP3   r     | PICT  r     | TTC   r\
+  CR2   r/w   | HDP   r/w   | MP4   r     | PMP   r     | TTF   r\
+  CRW   r/w   | HDR   r     | MPC   r     | PNG   r/w   | VRD   r/w/c\
+  CS1   r/w   | HTML  r     | MPG   r     | PPM   r/w   | VSD   r\
+  DCM   r     | ICC   r/w/c | MPO   r/w   | PPT   r     | WAV   r\
+  DCP   r/w   | IDML  r     | MQV   r     | PPTX  r     | WDP   r/w\
+  DCR   r     | IIQ   r/w   | MRW   r/w   | PS    r/w   | WEBP  r\
+  DFONT r     | IND   r/w   | MXF   r     | PSB   r/w   | WEBM  r\
+  DIVX  r     | INX   r     | NEF   r/w   | PSD   r/w   | WMA   r\
+  DJVU  r     | ITC   r     | NRW   r/w   | PSP   r     | WMV   r\
+  DLL   r     | J2C   r     | NUMBERS r   | QTIF  r     | WV    r\
+  DNG   r/w   | JNG   r/w   | ODP   r     | RA    r     | X3F   r/w\
+  DOC   r     | JP2   r/w   | ODS   r     | RAF   r/w   | XCF   r\
+  DOCX  r     | JPEG  r/w   | ODT   r     | RAM   r     | XLS   r\
+  DV    r     | K25   r     | OFR   r     | RAR   r     | XLSX  r\
+  DVB   r     | KDC   r     | OGG   r     | RAW   r/w   | XMP   r/w/c\
+  DYLIB r     | KEY   r     | OGV   r     | RIFF  r     | ZIP   r\
 %{nil}
 
 # awk -vname="Meta Information" '{ if ( start ) { if ( $0 ~ /^$/ ) { print "%{nil}"; exit 0 } print $0 "\\" } if ( $0 ~ name ) start = 1; }' < README
@@ -81,7 +81,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
   Canon VRD      r/w/c  |  PrintIM        r    |  ZIP            r\
   Nikon Capture  r/w/c  |  ID3            r    |  (and more)\
 %{nil}
-
 
 %description
 ExifTool is a customizable set of Perl modules plus an application
