@@ -27,9 +27,6 @@ Requires:	perl-Encode
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-# awk -vname="File Types" '{ if ( start ) { if ( $0 ~ /^$/ ) { print "%{nil}"; exit 0 } print $0 "\\" } if ( $0 ~ name ) start = 1; }' < README
-# awk -vname="Meta Information" '{ if ( start ) { if ( $0 ~ /^$/ ) { print "%{nil}"; exit 0 } print $0 "\\" } if ( $0 ~ name ) start = 1; }' < README
-
 %description
 ExifTool is a customizable set of Perl modules plus an application
 script for reading and writing meta information in a wide variety of
@@ -50,16 +47,6 @@ Sigma/Foveon i Sony.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
-
-# make sure description is up-to-date
-#echo "%{supported_file_types}" > supported_file_types.old.txt
-#echo "%{supported_meta_information}" > supported_meta_information.old.txt
-
-#awk -vname="File Types" '{ if ( start ) { if ( $0 ~ /^$/ ) { print ""; exit 0 } print } if ( $0 ~ name ) { start = 1; print "" }; }' < README > supported_file_types.new.txt
-#awk -vname="Meta Information" '{ if ( start ) { if ( $0 ~ /^$/ ) { print ""; exit 0 } print } if ( $0 ~ name ) { start = 1; print "" }; }' < README > supported_meta_information.new.txt
-
-#cmp supported_file_types.old.txt supported_file_types.new.txt
-#cmp supported_meta_information.old.txt supported_meta_information.new.txt
 
 %build
 %{__perl} Makefile.PL \
