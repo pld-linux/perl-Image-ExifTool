@@ -8,13 +8,13 @@
 Summary:	Perl module for reading and writing image metadata
 Summary(pl.UTF-8):	Moduł Perla do czytania i zapisywania metadanych w plikach graficznych
 Name:		perl-Image-ExifTool
-Version:	9.28
+Version:	10.16
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.sno.phy.queensu.ca/~phil/exiftool/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	4c862a1a5457b4096bf295259154f9bd
+# Source0-md5:	f14f60153aaabbc00d8bfb40222cf1eb
 URL:		http://www.sno.phy.queensu.ca/~phil/exiftool/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -28,59 +28,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # awk -vname="File Types" '{ if ( start ) { if ( $0 ~ /^$/ ) { print "%{nil}"; exit 0 } print $0 "\\" } if ( $0 ~ name ) start = 1; }' < README
-%define supported_file_types \
-  ------------+-------------+-------------+-------------+------------\
-  3FR   r     | EIP   r     | LA    r     | ORF   r/w   | RSRC  r\
-  3G2   r     | EPS   r/w   | LNK   r     | OTF   r     | RTF   r\
-  3GP   r     | ERF   r/w   | M2TS  r     | PAC   r     | RW2   r/w\
-  ACR   r     | EXE   r     | M4A/V r     | PAGES r     | RWL   r/w\
-  AFM   r     | EXIF  r/w/c | MEF   r/w   | PBM   r/w   | RWZ   r\
-  AI    r/w   | EXR   r     | MIE   r/w/c | PCD   r     | RM    r\
-  AIFF  r     | F4A/V r     | MIFF  r     | PDF   r/w   | SO    r\
-  APE   r     | FFF   r/w   | MKA   r     | PEF   r/w   | SR2   r/w\
-  ARW   r/w   | FLA   r     | MKS   r     | PFA   r     | SRF   r\
-  ASF   r     | FLAC  r     | MKV   r     | PFB   r     | SRW   r/w\
-  AVI   r     | FLV   r     | MNG   r/w   | PFM   r     | SVG   r\
-  BMP   r     | FPF   r     | MODD  r     | PGF   r     | SWF   r\
-  BTF   r     | FPX   r     | MOS   r/w   | PGM   r/w   | THM   r/w\
-  CHM   r     | GIF   r/w   | MOV   r     | PLIST r     | TIFF  r/w\
-  COS   r     | GZ    r     | MP3   r     | PICT  r     | TTC   r\
-  CR2   r/w   | HDP   r/w   | MP4   r     | PMP   r     | TTF   r\
-  CRW   r/w   | HDR   r     | MPC   r     | PNG   r/w   | VRD   r/w/c\
-  CS1   r/w   | HTML  r     | MPG   r     | PPM   r/w   | VSD   r\
-  DCM   r     | ICC   r/w/c | MPO   r/w   | PPT   r     | WAV   r\
-  DCP   r/w   | IDML  r     | MQV   r     | PPTX  r     | WDP   r/w\
-  DCR   r     | IIQ   r/w   | MRW   r/w   | PS    r/w   | WEBP  r\
-  DFONT r     | IND   r/w   | MXF   r     | PSB   r/w   | WEBM  r\
-  DIVX  r     | INX   r     | NEF   r/w   | PSD   r/w   | WMA   r\
-  DJVU  r     | ITC   r     | NRW   r/w   | PSP   r     | WMV   r\
-  DLL   r     | J2C   r     | NUMBERS r   | QTIF  r     | WV    r\
-  DNG   r/w   | JNG   r/w   | ODP   r     | RA    r     | X3F   r/w\
-  DOC   r     | JP2   r/w   | ODS   r     | RAF   r/w   | XCF   r\
-  DOCX  r     | JPEG  r/w   | ODT   r     | RAM   r     | XLS   r\
-  DV    r     | K25   r     | OFR   r     | RAR   r     | XLSX  r\
-  DVB   r     | KDC   r     | OGG   r     | RAW   r/w   | XMP   r/w/c\
-  DYLIB r     | KEY   r     | OGV   r     | RIFF  r     | ZIP   r\
-%{nil}
-
 # awk -vname="Meta Information" '{ if ( start ) { if ( $0 ~ /^$/ ) { print "%{nil}"; exit 0 } print $0 "\\" } if ( $0 ~ name ) start = 1; }' < README
-%define supported_meta_information \
-  ----------------------+----------------------+---------------------\
-  EXIF           r/w/c  |  CIFF           r/w  |  Ricoh RMETA    r\
-  GPS            r/w/c  |  AFCP           r/w  |  Picture Info   r\
-  IPTC           r/w/c  |  Kodak Meta     r/w  |  Adobe APP14    r\
-  XMP            r/w/c  |  FotoStation    r/w  |  MPF            r\
-  MakerNotes     r/w/c  |  PhotoMechanic  r/w  |  Stim           r\
-  Photoshop IRB  r/w/c  |  JPEG 2000      r    |  APE            r\
-  ICC Profile    r/w/c  |  DICOM          r    |  Vorbis         r\
-  MIE            r/w/c  |  Flash          r    |  SPIFF          r\
-  JFIF           r/w/c  |  FlashPix       r    |  DjVu           r\
-  Ducky APP12    r/w/c  |  QuickTime      r    |  M2TS           r\
-  PDF            r/w/c  |  Matroska       r    |  PE/COFF        r\
-  PNG            r/w/c  |  GeoTIFF        r    |  AVCHD          r\
-  Canon VRD      r/w/c  |  PrintIM        r    |  ZIP            r\
-  Nikon Capture  r/w/c  |  ID3            r    |  (and more)\
-%{nil}
 
 %description
 ExifTool is a customizable set of Perl modules plus an application
@@ -91,15 +39,6 @@ JVC/Victor, Kodak, Leaf, Minolta/Konica-Minolta, Nikon, Olympus/Epson,
 Panasonic/Leica, Pentax/Asahi, Reconyx, Ricoh, Samsung, Sanyo,
 Sigma/Foveon and Sony.
 
-Below is a list of file types and meta information formats currently
-supported by ExifTool (r = read, w = write, c = create):
-
-- File Types%{supported_file_types}
-
-- Meta Information%{supported_meta_information}
-
-See html/index.html for more details about ExifTool features.
-
 %description -l pl.UTF-8
 ExifTool to dostosowywalny zestaw modułów perlowych oraz aplikacja do
 czytania i zapisywania metadanych w szerokiej gamie rodzajów plików.
@@ -109,28 +48,18 @@ JVC/Victor, Kodak, Leaf, Minolta/Konica-Minolta, Nikon, Olympus/Epson,
 Panasonic/Leica, Pentax/Asahi, Reconyx, Ricoh, Samsung, Sanyo,
 Sigma/Foveon i Sony.
 
-Lista formatów plików i metadanych obsługiwanych przez ExifTool
-(r = odczyt, w = zapis, c = tworzenie):
-
-- Formaty plików%{supported_file_types}
-
-- Formaty metadanych%{supported_meta_information}
-
-Więcej informacji o możliwościach pakietu ExifTool znajduje się w
-pliku html/index.html.
-
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 # make sure description is up-to-date
-echo "%{supported_file_types}" > supported_file_types.old.txt
-echo "%{supported_meta_information}" > supported_meta_information.old.txt
+#echo "%{supported_file_types}" > supported_file_types.old.txt
+#echo "%{supported_meta_information}" > supported_meta_information.old.txt
 
-awk -vname="File Types" '{ if ( start ) { if ( $0 ~ /^$/ ) { print ""; exit 0 } print } if ( $0 ~ name ) { start = 1; print "" }; }' < README > supported_file_types.new.txt
-awk -vname="Meta Information" '{ if ( start ) { if ( $0 ~ /^$/ ) { print ""; exit 0 } print } if ( $0 ~ name ) { start = 1; print "" }; }' < README > supported_meta_information.new.txt
+#awk -vname="File Types" '{ if ( start ) { if ( $0 ~ /^$/ ) { print ""; exit 0 } print } if ( $0 ~ name ) { start = 1; print "" }; }' < README > supported_file_types.new.txt
+#awk -vname="Meta Information" '{ if ( start ) { if ( $0 ~ /^$/ ) { print ""; exit 0 } print } if ( $0 ~ name ) { start = 1; print "" }; }' < README > supported_meta_information.new.txt
 
-cmp supported_file_types.old.txt supported_file_types.new.txt
-cmp supported_meta_information.old.txt supported_meta_information.new.txt
+#cmp supported_file_types.old.txt supported_file_types.new.txt
+#cmp supported_meta_information.old.txt supported_meta_information.new.txt
 
 %build
 %{__perl} Makefile.PL \
