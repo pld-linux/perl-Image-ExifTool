@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests	# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define		pdir	Image
 %define		pnam	ExifTool
 Summary:	Perl module for reading and writing image metadata
