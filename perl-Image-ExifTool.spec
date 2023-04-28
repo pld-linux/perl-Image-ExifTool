@@ -8,7 +8,7 @@ Summary:	Perl module for reading and writing image metadata
 Summary(pl.UTF-8):	Moduł Perla do czytania i zapisywania metadanych w plikach graficznych
 Name:		perl-Image-ExifTool
 Version:	12.29
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
@@ -28,13 +28,12 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-ExifTool is a customizable set of Perl modules plus an application
-script for reading and writing meta information in a wide variety of
-files, including the maker note information of many digital cameras by
-various manufacturers such as Canon, Casio, FujiFilm, GE, HP,
-JVC/Victor, Kodak, Leaf, Minolta/Konica-Minolta, Nikon, Olympus/Epson,
-Panasonic/Leica, Pentax/Asahi, Reconyx, Ricoh, Samsung, Sanyo,
-Sigma/Foveon and Sony.
+ExifTool is a customizable set of Perl modules for reading and writing
+meta information in a wide variety of files, including the maker note
+information of many digital cameras by various manufacturers such as
+Canon, Casio, FujiFilm, GE, HP, JVC/Victor, Kodak, Leaf,
+Minolta/Konica-Minolta, Nikon, Olympus/Epson, Panasonic/Leica,
+Pentax/Asahi, Reconyx, Ricoh, Samsung, Sanyo, Sigma/Foveon and Sony.
 
 %description -l pl.UTF-8
 ExifTool to dostosowywalny zestaw modułów perlowych oraz aplikacja do
@@ -44,6 +43,19 @@ przez aparaty cyfrowe takich firm jak Canon, Casio, FujiFilm, GE, HP,
 JVC/Victor, Kodak, Leaf, Minolta/Konica-Minolta, Nikon, Olympus/Epson,
 Panasonic/Leica, Pentax/Asahi, Reconyx, Ricoh, Samsung, Sanyo,
 Sigma/Foveon i Sony.
+
+%package -n exiftool
+Summary:	Program for reading and writing EXIF metadata
+Group:		Applications/Graphics
+Requires:	%{name} = %{version}-%{release}
+
+%description -n exiftool
+ExifTool is an application for reading and writing meta information in
+a wide variety of files, including the maker note information of many
+digital cameras by various manufacturers such as Canon, Casio,
+FujiFilm, GE, HP, JVC/Victor, Kodak, Leaf, Minolta/Konica-Minolta,
+Nikon, Olympus/Epson, Panasonic/Leica, Pentax/Asahi, Reconyx, Ricoh,
+Samsung, Sanyo, Sigma/Foveon and Sony.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -72,7 +84,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README Changes html
-%attr(755,root,root) %{_bindir}/exiftool
 %{perl_vendorlib}/File/RandomAccess.pm
 %{perl_vendorlib}/Image/ExifTool.pm
 %dir %{perl_vendorlib}/Image/ExifTool
@@ -97,6 +108,10 @@ rm -rf $RPM_BUILD_ROOT
 %lang(tr) %{perl_vendorlib}/Image/ExifTool/Lang/tr.pm
 %lang(zh_CN) %{perl_vendorlib}/Image/ExifTool/Lang/zh_cn.pm
 %lang(zh_TW) %{perl_vendorlib}/Image/ExifTool/Lang/zh_tw.pm
-%{_mandir}/man1/exiftool.1p*
 %{_mandir}/man3/File::RandomAccess.3pm*
 %{_mandir}/man3/Image::ExifTool*.3pm*
+
+%files -n exiftool
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/exiftool
+%{_mandir}/man1/exiftool.1p*
