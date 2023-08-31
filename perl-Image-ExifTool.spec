@@ -1,20 +1,20 @@
 #
 # Conditional build:
-%bcond_without	tests	# do not perform "make test"
+%bcond_without	tests	# unit tests
 #
 %define		pdir	Image
 %define		pnam	ExifTool
 Summary:	Perl module for reading and writing image metadata
 Summary(pl.UTF-8):	Moduł Perla do czytania i zapisywania metadanych w plikach graficznych
 Name:		perl-Image-ExifTool
-Version:	12.29
-Release:	2
+Version:	12.65
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.sno.phy.queensu.ca/~phil/exiftool/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	d10e84ec0eeba85f959d71417f23a68b
-URL:		http://www.sno.phy.queensu.ca/~phil/exiftool/
+Source0:	https://exiftool.org/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	1f5a1368313cb3ab76933e45dd7b3f5b
+URL:		https://exiftool.org/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rpmbuild(macros) >= 1.745
@@ -46,6 +46,7 @@ Sigma/Foveon i Sony.
 
 %package -n exiftool
 Summary:	Program for reading and writing EXIF metadata
+Summary(pl.UTF-8):	Program do odczytu i zapisu metadanych Exif
 Group:		Applications/Graphics
 Requires:	%{name} = %{version}-%{release}
 
@@ -56,6 +57,14 @@ digital cameras by various manufacturers such as Canon, Casio,
 FujiFilm, GE, HP, JVC/Victor, Kodak, Leaf, Minolta/Konica-Minolta,
 Nikon, Olympus/Epson, Panasonic/Leica, Pentax/Asahi, Reconyx, Ricoh,
 Samsung, Sanyo, Sigma/Foveon and Sony.
+
+%description -n exiftool -l pl.UTF-8
+ExifTool to aplikacja do odczytu i zapisu metadanych w szerokoej gamie
+rodzajów plików, w tym informacji dodatkowych o zdjęciach,
+zapisywanych przez aparaty cyfrowe takich firm, jak Canon, Casio,
+FujiFilm, GE, HP, JVC/Victor, Kodak, Leaf, Minolta/Konica-Minolta,
+Nikon, Olympus/Epson, Panasonic/Leica, Pentax/Asahi, Reconyx, Ricoh,
+Samsung, Sanyo, Sigma/Foveon i Sony.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -104,6 +113,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(nl) %{perl_vendorlib}/Image/ExifTool/Lang/nl.pm
 %lang(pl) %{perl_vendorlib}/Image/ExifTool/Lang/pl.pm
 %lang(ru) %{perl_vendorlib}/Image/ExifTool/Lang/ru.pm
+%lang(sk) %{perl_vendorlib}/Image/ExifTool/Lang/sk.pm
 %lang(sv) %{perl_vendorlib}/Image/ExifTool/Lang/sv.pm
 %lang(tr) %{perl_vendorlib}/Image/ExifTool/Lang/tr.pm
 %lang(zh_CN) %{perl_vendorlib}/Image/ExifTool/Lang/zh_cn.pm
